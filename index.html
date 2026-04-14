@@ -1,47 +1,36 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl" class="scroll-smooth">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הרב אלדר לוי | טוען רבני ודיין מוסמך - מומחיות בבתי הדין</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ספרות תפארתך | אומנות כתבי הקודש</title>
     
+    <!-- Premium Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700&family=Frank+Ruhl+Libre:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Assistant', 'sans-serif'],
                         serif: ['Frank Ruhl Libre', 'serif'],
+                        latin: ['Cinzel', 'serif'],
                     },
                     colors: {
                         gold: {
-                            50: '#fdfbf7',
-                            100: '#f7f0e1',
-                            200: '#eddcb9',
-                            300: '#dfc085',
-                            400: '#d1a056',
-                            500: '#c5a059',
-                            600: '#b38728',
-                            700: '#8a651b',
+                            light: '#FCF6BA',
+                            DEFAULT: '#D4AF37',
+                            dark: '#996515',
+                            premium: '#AA771C'
                         },
                         navy: {
-                            800: '#1a1f2c',
-                            900: '#0a0f1a',
-                            950: '#050810',
+                            light: '#1a2a4a',
+                            DEFAULT: '#0c1425',
+                            dark: '#050a14'
                         }
-                    },
-                    backgroundImage: {
-                       'parchment': "url('https://www.transparenttextures.com/patterns/parchment.png')",
-                       'dark-pattern': "url('https://www.transparenttextures.com/patterns/black-linen.png')"
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
@@ -50,2146 +39,336 @@
 
     <style>
         :root {
-            --gold-primary: #c5a059;
-            --navy-deep: #050810;
+            --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 45%, #B38728 70%, #AA771C 100%);
+            --royal-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
-        
-        body { 
-            font-family: 'Assistant', sans-serif; 
-            background-color: #fdfbf7;
-        }
-        
-        h1, h2, h3, h4, .serif { font-family: 'Frank Ruhl Libre', serif; }
 
-        .gold-text-shine {
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fcf6ba, #bf953f);
+        body {
+            background-color: #FDFBF7;
+            background-image: url("https://www.transparenttextures.com/patterns/p6.png"); /* subtle paper texture */
+            scroll-behavior: smooth;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 4s linear infinite;
         }
 
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .book-texture {
-            background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+        .gold-border {
+            border: 1px solid;
+            border-image-source: var(--gold-gradient);
+            border-image-slice: 1;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
+        .luxury-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .testimonial-card {
-            background: white;
-            border-right: 4px solid #c5a059;
-            transition: all 0.4s ease;
-        }
-        
-        .dark .testimonial-card {
-            background: #0a0f1a;
+        .luxury-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--royal-shadow);
+            border-color: rgba(212, 175, 55, 0.6);
         }
 
-        .btn-luxury {
-            position: relative;
-            z-index: 1;
-            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-            overflow: hidden;
-            letter-spacing: 0.05em;
-        }
-        
-        .btn-luxury::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.6s ease;
-            z-index: -1;
-        }
-        .btn-luxury:hover::before { left: 100%; }
-
-        .mobile-menu-active { transform: translateX(0) !important; }
-
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #c5a059, transparent);
-            width: 80%;
-            margin: 0 auto;
-            opacity: 0.3;
-        }
-        
-        .parallax-section {
+        .parallax-bg {
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        /* Timeline Styles */
-        .timeline-line {
+        /* Decorative Corners */
+        .corner-decoration {
             position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: rgba(197, 160, 89, 0.3);
-            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-color: #D4AF37;
+            opacity: 0.5;
         }
-        @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
+        .top-left { top: 20px; left: 20px; border-top: 2px solid; border-left: 2px solid; }
+        .bottom-right { bottom: 20px; right: 20px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
-        
-        /* Checkmark List Style */
-        .check-list li {
-            position: relative;
-            padding-right: 25px;
-            margin-bottom: 10px;
+
+        .premium-btn {
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            animation: shimmer 4s infinite linear;
         }
-        .check-list li::before {
-            content: '✓';
-            position: absolute;
-            right: 0;
-            color: #c5a059;
-            font-weight: bold;
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-title { font-size: 4rem !important; }
         }
     </style>
 </head>
-<body class="bg-gold-50 dark:bg-navy-950 text-slate-900 dark:text-slate-100 transition-colors duration-500 book-texture">
+<body class="font-sans text-navy overflow-x-hidden">
 
-    <!-- Preloader -->
-    <div id="loader" class="fixed inset-0 z-[2000] bg-navy-950 flex flex-col items-center justify-center transition-opacity duration-1000">
-        <div class="serif text-4xl gold-text-shine mb-4 tracking-widest">משרד הרב אלדר לוי</div>
-        <div class="text-[10px] text-white/40 uppercase tracking-[0.5em] mb-8">עוצמה הלכתית • יושרה מקצועית</div>
-        <div class="w-48 h-[1px] bg-white/10 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gold-500 -translate-x-full animate-[progress_2s_ease-in-out_infinite]"></div>
-        </div>
-    </div>
-
-    <!-- Floating Action Button (Mobile) -->
-    <a href="tel:0528219928" class="fixed bottom-6 left-6 z-50 lg:hidden bg-gold-500 text-navy-950 p-4 rounded-full shadow-2xl animate-pulse-slow border border-white/20">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    </a>
-
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-[1000] transition-all duration-500 py-4 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="serif text-2xl font-bold dark:text-white">
-                    <span class="gold-text-shine">הרב אלדר לוי</span>
-                </div>
-                <div class="hidden sm:block h-6 w-[1px] bg-gold-500/30"></div>
-                <div class="hidden sm:block text-[11px] font-bold text-gold-600">טוען רבני | דיין מוסמך | מ.ר. 2123</div>
-            </div>
-
-            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest">
-                <a href="#about" class="hover:text-gold-500 transition-colors">אודות</a>
-                <a href="#advantage" class="hover:text-gold-500 transition-colors">היתרון</a>
-                <a href="#services" class="hover:text-gold-500 transition-colors">התמחויות</a>
-                <a href="#comparison" class="hover:text-gold-500 transition-colors">השוואה</a>
-                <a href="#timeline" class="hover:text-gold-500 transition-colors">התהליך</a>
-                <a href="#cases" class="hover:text-gold-500 transition-colors">תיקים</a>
-                <a href="#testimonials" class="hover:text-gold-500 transition-colors">המלצות</a>
-                <a href="#contact" class="bg-gold-500 text-navy-950 px-6 py-2.5 rounded-sm hover:shadow-lg transition-all">יצירת קשר</a>
-            </div>
-
-            <button id="menu-toggle" class="lg:hidden text-gold-600 p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
+    <!-- Premium Navigation Placeholder -->
+    <nav class="w-full bg-navy-dark text-white/80 py-3 px-6 flex justify-between items-center border-b border-gold/20">
+        <span class="text-[10px] tracking-[0.3em] font-light">EST. 2010</span>
+        <span class="font-serif text-sm tracking-widest text-gold uppercase">בסייעתא דשמיא</span>
+        <span class="text-[10px] tracking-[0.3em] font-light italic">נתיבות, ישראל</span>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[1500] bg-navy-950 translate-x-full transition-transform duration-500 lg:hidden flex flex-col items-center justify-center gap-10">
-        <button id="menu-close" class="absolute top-8 right-8 text-gold-500">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <a href="#about" class="serif text-3xl text-white">אודות</a>
-        <a href="#services" class="serif text-3xl text-white">תחומי עיסוק</a>
-        <a href="#comparison" class="serif text-3xl text-white">היתרון שלנו</a>
-        <a href="#timeline" class="serif text-3xl text-white">המסע המשותף</a>
-        <a href="#contact" class="serif text-3xl text-gold-500 border border-gold-500/30 px-10 py-4">פגישת יעוץ</a>
-    </div>
-
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
-        <div class="absolute inset-0 bg-navy-950">
-            <div class="absolute inset-0 bg-gradient-to-l from-navy-950 via-navy-950/40 to-transparent z-10"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-navy-950 z-10"></div>
-            
-            <img src="https://lh3.googleusercontent.com/d/1V8F9iLDmUPqa-4Kd0y4Z1KPrM3Rinm-N" class="w-full h-full object-cover opacity-60 scale-105 object-center lg:object-[center_20%]" alt="הרב אלדר לוי">
-        </div>
+    <header class="relative min-h-[85vh] flex items-center justify-center bg-navy-dark overflow-hidden">
+        <!-- Floating Light Effect -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900/20 blur-[120px] rounded-full"></div>
         
-        <div class="container mx-auto px-6 md:px-12 relative z-20">
-            <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="1200">
-                <span class="inline-block text-gold-500 text-sm font-bold tracking-[0.4em] mb-6 uppercase">מסורת • צדק • אמת</span>
-                <h1 class="serif text-5xl md:text-8xl text-white leading-tight mb-8">
-                    ניווט תורני בנתיבי <br><span class="gold-text-shine italic font-light">ההלכה והדין</span>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div data-aos="fade-down" data-aos-duration="1500">
+                <p class="font-latin text-gold tracking-[0.5em] text-xs sm:text-sm mb-6 uppercase">The Art of Sacred Calligraphy</p>
+                <h1 class="hero-title font-serif text-6xl sm:text-9xl font-black text-white leading-tight mb-4 drop-shadow-2xl">
+                    ספרות <span class="gold-text">תפארתך</span>
                 </h1>
-                <p class="text-slate-300 text-lg md:text-2xl font-light leading-relaxed max-w-3xl mb-12">
-                    ליווי משפטי-הלכתי המשלב עומק עיוני בשולחן ערוך עם ניסיון מעשי בבתי הדין. פתרונות יסודיים ומעודנים לסוגיות המורכבות ביותר.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="tel:0528219928" class="btn-luxury bg-gold-500 text-navy-950 px-12 py-5 font-bold text-sm uppercase shadow-2xl text-center">שיחת ייעוץ ראשונית</a>
-                    <a href="mailto:Tifarteha@gmail.com" class="btn-luxury border border-white/20 text-white px-12 py-5 font-bold text-sm uppercase hover:bg-white/10 transition-all text-center">פנייה באימייל</a>
+                <div class="flex justify-center items-center gap-6 mb-8">
+                    <div class="h-[1px] w-12 sm:w-24 bg-gradient-to-l from-gold to-transparent"></div>
+                    <span class="font-serif text-xl sm:text-3xl text-gold/80 italic">אומנות, קדושה, הידור</span>
+                    <div class="h-[1px] w-12 sm:w-24 bg-gradient-to-r from-gold to-transparent"></div>
                 </div>
+                <p class="text-white/60 max-w-2xl mx-auto text-lg font-light leading-relaxed mb-10">
+                    כתיבת סת"ם ברמה הגבוהה ביותר, על ידי סופר מוסמך, תוך הקפדה על דקדוקי הלכה ויופי אומנותי נדיר.
+                </p>
+                <a href="#prices" class="premium-btn text-navy px-10 py-4 rounded-sm font-bold tracking-widest text-sm uppercase transition-transform hover:scale-105 inline-block">
+                    לצפייה במחירון המלא
+                </a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Statistics Bar -->
-    <section class="bg-navy-900 border-b border-gold-500/10 py-12 relative z-30">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-x-reverse divide-gold-500/10">
-                <div data-aos="fade-up">
-                    <div class="text-4xl font-serif text-gold-500 mb-2">15+</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-400">שנות ניסיון בהלכה</div>
-                </div>
+    <!-- Excellence Section -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                 <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl font-serif text-gold-500 mb-2">2123</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-400">מס' רישיון טוען רבני</div>
+                    <div class="text-gold text-4xl mb-4 font-serif">I</div>
+                    <h4 class="font-bold text-navy text-xl mb-2 font-serif">הגיהה דקדקנית</h4>
+                    <p class="text-gray-500 text-sm italic">שלוש רמות של בדיקה: ידנית, מחשב וסופר, למניעת כל חשש.</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl font-serif text-gold-500 mb-2">∞</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-400">מחויבות ללקוח</div>
+                    <div class="text-gold text-4xl mb-4 font-serif">II</div>
+                    <h4 class="font-bold text-navy text-xl mb-2 font-serif">קלף משובח</h4>
+                    <p class="text-gray-500 text-sm italic">שימוש בעורות שלמים ועיבוד ידני מסורתי השומר על לובן הקלף לשנים.</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl font-serif text-gold-500 mb-2">95%</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-400">הצלחה בגישורים</div>
+                    <div class="text-gold text-4xl mb-4 font-serif">III</div>
+                    <h4 class="font-bold text-navy text-xl mb-2 font-serif">אומנות הכתיבה</h4>
+                    <p class="text-gray-500 text-sm italic">כתב אחיד, ברור ומרשים המשקף את כבוד הקודש בכל אות ואות.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="py-24 bg-white dark:bg-navy-900 border-b border-gold-500/10">
-        <div class="container mx-auto px-6 text-center">
-            <div class="grid md:grid-cols-3 gap-16">
-                <div data-aos="fade-up">
-                    <div class="serif text-4xl text-gold-500 mb-4 italic">דין אמת</div>
-                    <p class="text-slate-500 dark:text-slate-400 font-light leading-relaxed">שאיפה מתמדת למיצוי הדין לפי דעת תורה, תוך בקיאות בראשונים ובאחרונים עד להלכה למעשה.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="serif text-4xl text-gold-500 mb-4 italic">שלום בית</div>
-                    <p class="text-slate-500 dark:text-slate-400 font-light leading-relaxed">חתירה ליישוב סכסוכים בדרכי נועם וגישור, תוך ניסיון כנה למנוע פירוד לבבות ככל הניתן.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="serif text-4xl text-gold-500 mb-4 italic">דיסקרטיות</div>
-                    <p class="text-slate-500 dark:text-slate-400 font-light leading-relaxed">נאמנות מוחלטת ללקוח תוך שמירה על צנעת הפרט וערכי המוסר היהודי בשיא הרגישות.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Torah Foundation -->
-    <section class="py-24 bg-navy-950 border-b border-gold-500/10">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="serif text-4xl text-white mb-6">יסודות הפסיקה</h2>
-                <div class="w-24 h-[1px] bg-gold-500 mx-auto opacity-50"></div>
-                <p class="mt-6 text-slate-400 max-w-2xl mx-auto">משפטנו נשען על אדני התורה וההלכה, תוך התמחות ספציפית בחלקי השולחן ערוך הרלוונטיים.</p>
-            </div>
+    <!-- Pricing Section -->
+    <main id="prices" class="py-20 px-4 sm:px-6 relative">
+        <div class="max-w-6xl mx-auto">
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="glass-card p-10 relative overflow-hidden group" data-aos="fade-right">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-full transition-transform group-hover:scale-150"></div>
-                    <h3 class="serif text-3xl text-gold-500 mb-4">אבן העזר</h3>
-                    <p class="text-slate-300 font-light leading-relaxed mb-6">
-                        חלק השולחן ערוך העוסק בדיני אישות, נישואין וגירושין. אנו מעמיקים בסימנים העוסקים בכתובה, מזונות, ומורדת, כדי להבטיח את זכויות הלקוח בבית הדין.
-                    </p>
-                    <span class="text-xs font-bold text-white uppercase tracking-widest border-b border-gold-500 pb-1">מומחיות בגיטין וקידושין</span>
+            <!-- Section Header -->
+            <div class="text-center mb-24" data-aos="zoom-in">
+                <h2 class="font-serif text-5xl sm:text-7xl font-bold text-navy mb-4">מחירון תשפ"ה</h2>
+                <p class="font-latin text-gold-dark tracking-widest text-sm uppercase">Official Valuation Guide</p>
+                <div class="flex justify-center mt-6">
+                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none"><path d="M0 10C15 10 15 2 30 2C45 2 45 10 60 10" stroke="#D4AF37" stroke-width="2"/></svg>
                 </div>
+            </div>
+
+            <!-- ספרי תורה Grid -->
+            <div class="mb-32">
+                <div class="flex items-center gap-6 mb-12" data-aos="fade-right">
+                    <h3 class="font-serif text-3xl font-bold text-navy shrink-0">ספרי תורה</h3>
+                    <div class="h-[1px] bg-gold/30 flex-1"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Standard -->
+                    <div class="luxury-card p-10 rounded-lg relative overflow-hidden" data-aos="fade-up">
+                        <span class="absolute top-0 right-0 bg-navy text-white text-[10px] px-4 py-1 font-bold">STND</span>
+                        <h4 class="font-serif text-2xl mb-2 text-navy">כתיבה סטנדרטית</h4>
+                        <p class="text-gray-400 text-xs mb-8 uppercase tracking-tighter italic font-light">הידור כשר לכתחילה • קלף איכותי</p>
+                        <div class="text-4xl font-black text-navy border-t border-gold/20 pt-6 italic">₪140,000</div>
+                    </div>
+
+                    <!-- Recommended (Center) -->
+                    <div class="luxury-card p-10 rounded-lg border-2 border-gold/50 shadow-2xl scale-105 z-10 bg-white" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-0 inset-x-0 h-1 premium-btn"></div>
+                        <span class="text-gold-dark font-bold text-[10px] tracking-widest uppercase block mb-2">The Golden Choice</span>
+                        <h4 class="font-serif text-3xl mb-2 text-navy font-bold">יריעות עבודת יד</h4>
+                        <p class="text-gold-premium text-xs mb-8 font-bold">עיבוד ידני משובח • כתיבה מהודרת ביותר</p>
+                        <div class="text-5xl font-black text-navy italic">₪160,000</div>
+                        <div class="mt-8 text-[10px] text-gray-400 leading-relaxed uppercase">Perfectly balanced calligraphy for lifelong preservation</div>
+                    </div>
+
+                    <!-- Boutique -->
+                    <div class="luxury-card p-10 rounded-lg relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <span class="absolute top-0 right-0 bg-gold-premium text-white text-[10px] px-4 py-1 font-bold uppercase">Rare Edition</span>
+                        <h4 class="font-serif text-2xl mb-2 text-navy italic">מהדורת "שלי"</h4>
+                        <p class="text-gray-400 text-xs mb-8 font-light italic">48 ס"מ ומטה • דיוק אומנותי נדיר</p>
+                        <div class="text-4xl font-black text-navy border-t border-gold/20 pt-6 italic">₪185,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- תפילין & מזוזות Flex Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 
-                <div class="glass-card p-10 relative overflow-hidden group" data-aos="fade-left">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-full transition-transform group-hover:scale-150"></div>
-                    <h3 class="serif text-3xl text-gold-500 mb-4">חושן משפט</h3>
-                    <p class="text-slate-300 font-light leading-relaxed mb-6">
-                        חלק השולחן ערוך העוסק בדיני ממונות, דיינים וטוענים. שליטה בחלק זה היא קריטית לניהול בוררויות עסקיות, סכסוכי ירושה ודיני שכנים.
-                    </p>
-                    <span class="text-xs font-bold text-white uppercase tracking-widest border-b border-gold-500 pb-1">מומחיות בנזיקין וחוזים</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bio Section -->
-    <section id="about" class="py-24">
-        <div class="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-20 items-center">
-            <div data-aos="fade-right">
-                <h2 class="serif text-4xl md:text-6xl mb-10 leading-tight">דיינות, פסיקה <br><span class="text-gold-500">& עוצמה הלכתית</span></h2>
-                <div class="space-y-8 text-slate-700 dark:text-slate-300 font-light text-lg leading-relaxed">
-                    <p>
-                        במשרדו של <strong class="text-gold-600">הרב אלדר לוי</strong>, אנו לא מסתכלים על התיק כאל רצף של טפסים משפטיים, אלא כאל "שאלה" הלכתית ודיונית הדורשת בירור מעמיק. הכושר לדיינות הוא המתודולוגיה שלנו. 
-                    </p>
-                    <p>
-                        אנו מביאים עמנו את הכלים שבהם משתמשים הדיינים עצמם: ניתוח סוגיות בגמרא, השוואה לפסקי דין רבניים, ובניית טענות המבוססות על יסודות הדין ב"אבן העזר" וב"חושן משפט".
-                    </p>
-                    <div class="bg-gold-500/10 p-6 border-r-4 border-gold-500 italic">
-                        "היכולת לראות את התיק דרך עיניו של הדיין היא היתרון המשמעותי ביותר שניתן להעניק ללקוח בבית הדין הרבני."
-                    </div>
-                </div>
-            </div>
-            <div class="relative" data-aos="zoom-in">
-                <div class="aspect-[3/4] bg-navy-900 rounded-lg overflow-hidden relative shadow-2xl group border-2 border-gold-500/20">
-                    <img src="https://lh3.googleusercontent.com/d/1jsZzClwy3vWfrDE2Bu260lzWXucQ7YYk" class="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105" alt="הרב אלדר לוי - דיוקן">
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-10 left-10 right-10">
-                        <div class="serif text-3xl text-white mb-2 italic">הרב אלדר לוי</div>
-                        <p class="text-gold-500 text-sm font-bold uppercase tracking-widest">מ.ר 2123 | מוסמך לרבנות ולדיינות</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Advantage Section -->
-    <section id="advantage" class="py-24 bg-navy-900 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500/5 rounded-full blur-[100px]"></div>
-        <div class="container mx-auto px-6 md:px-12 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="serif text-4xl text-white mb-6">היתרון האסטרטגי</h2>
-                <div class="w-24 h-[1px] bg-gold-500 mx-auto opacity-50"></div>
-                <p class="mt-6 text-slate-400 max-w-2xl mx-auto">בבית הדין, השפה היא ארמית וההיגיון הוא תלמודי. רק מי ששוחה בים התלמוד יכול לנווט את הספינה לחוף מבטחים.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-navy-950 p-8 border border-gold-500/10 hover:border-gold-500/40 transition-all group" data-aos="fade-up">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-full flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h3 class="serif text-xl text-white mb-3">שפת בית הדין</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">היכולת לנסח כתבי טענות בשפה הלכתית מדויקת ("לשון הקודש" של הדיינים) יוצרת אמון מיידי וקשב רב יותר.</p>
-                </div>
-                
-                <div class="bg-navy-950 p-8 border border-gold-500/10 hover:border-gold-500/40 transition-all group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-full flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                    </div>
-                    <h3 class="serif text-xl text-white mb-3">צפי אסטרטגי</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">הבנה עמוקה של איך דיין חושב מאפשרת לנו לצפות את השאלות שיעלו בדיון ולהכין מראש תשובות ומקורות.</p>
-                </div>
-
-                <div class="bg-navy-950 p-8 border border-gold-500/10 hover:border-gold-500/40 transition-all group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-full flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-8a2 2 0 012-2h14a2 2 0 012 2v8M3 21h18M3 21l8-8 8 8M3 11l9-9 9 9"></path></svg>
-                    </div>
-                    <h3 class="serif text-xl text-white mb-3">פתרונות יצירתיים</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">ההלכה רחבה מני ים. היכרות עם ספרות השו"ת (שאלות ותשובות) לדורותיה מאפשרת למצוא תקדימים.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: Comparison Section (Advocate vs Lawyer) -->
-    <section id="comparison" class="py-24 bg-white dark:bg-navy-900 border-t border-gold-500/10">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-gold-600 font-bold tracking-[0.4em] text-[10px] uppercase">למה דווקא טוען רבני?</span>
-                <h2 class="serif text-4xl mt-4 text-navy-950 dark:text-white">ההבדל הדק שעושה את ההבדל</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">בבית הדין הרבני, הכללים שונים מאשר בבית המשפט האזרחי. הנה הסיבה למה המומחיות שלנו קריטית להצלחה שלכם.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="bg-slate-50 dark:bg-navy-800 p-8 rounded border border-slate-200 dark:border-slate-700 opacity-70">
-                    <h3 class="serif text-2xl text-slate-500 mb-6">עורך דין רגיל</h3>
-                    <ul class="space-y-4 text-sm text-slate-500">
-                        <li class="flex items-start gap-3"><span class="text-red-400">✕</span> מכיר את החוק האזרחי, אך לא את דקויות ההלכה.</li>
-                        <li class="flex items-start gap-3"><span class="text-red-400">✕</span> משתמש בטרמינולוגיה משפטית שזרה לדיינים.</li>
-                        <li class="flex items-start gap-3"><span class="text-red-400">✕</span> עלול להעלות טיעונים שנתפסים כ"מקוממים" בבית הדין.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-navy-950 p-8 rounded border-2 border-gold-500 relative shadow-2xl transform scale-105">
-                    <div class="absolute top-0 right-0 bg-gold-500 text-navy-950 text-xs font-bold px-3 py-1 uppercase">הבחירה המנצחת</div>
-                    <h3 class="serif text-2xl text-gold-500 mb-6">טוען רבני מוסמך</h3>
-                    <ul class="space-y-4 text-sm text-slate-300">
-                        <li class="flex items-start gap-3"><span class="text-gold-500">✓</span> חי ונושם את השולחן ערוך והפסיקה העדכנית.</li>
-                        <li class="flex items-start gap-3"><span class="text-gold-500">✓</span> דובר את "שפת הקודש" של הדיינים ויוצר כימיה.</li>
-                        <li class="flex items-start gap-3"><span class="text-gold-500">✓</span> יודע אילו טיעונים הלכתיים יכריעו את הכף לטובתכם.</li>
-                        <li class="flex items-start gap-3"><span class="text-gold-500">✓</span> מבין את הניואנסים התרבותיים והקהילתיים.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parallax Section -->
-    <section class="py-32 parallax-section relative bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1507842217121-ad58641eb203?q=80&w=2070');">
-        <div class="absolute inset-0 bg-navy-950/80"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center" data-aos="zoom-in">
-            <h2 class="serif text-5xl md:text-7xl text-white mb-8 font-bold">"צדק צדק תרדוף"</h2>
-            <p class="text-gold-200 text-xl md:text-2xl font-light italic max-w-3xl mx-auto leading-relaxed">
-                "שלא תאמר איש פלוני עשיר הוא, בן גדולים הוא, איך אביישנו ואראה בבושתו? ושלא תאמר איש פלוני עני הוא... אטה בדינו. לכך נאמר: צדק צדק תרדוף."
-            </p>
-            <div class="mt-8 text-gold-500 font-bold tracking-widest text-sm uppercase">— רש"י על דברים ט"ז</div>
-        </div>
-    </section>
-
-    <!-- Methodology Section -->
-    <section id="method" class="py-24 bg-navy-950 relative border-y border-gold-500/10">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="serif text-4xl text-white mb-4">מתודולוגיית הפסיקה</h2>
-                <div class="w-24 h-[1px] bg-gold-500 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="relative group text-center" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 border border-gold-500/30 rounded-full flex items-center justify-center text-gold-500 font-serif text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">א</div>
-                    <h3 class="text-white text-xl font-serif mb-3">בירור המקח</h3>
-                    <p class="text-slate-400 text-sm font-light">איסוף ראיות, מסמכים ועדויות לבניית תמונת מצב הלכתית מדויקת.</p>
-                </div>
-                <div class="relative group text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 border border-gold-500/30 rounded-full flex items-center justify-center text-gold-500 font-serif text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">ב</div>
-                    <h3 class="text-white text-xl font-serif mb-3">אסטרטגיה</h3>
-                    <p class="text-slate-400 text-sm font-light">גיבוש קו טיעון המבוסס על סעיפי שולחן ערוך ונושאי כליו.</p>
-                </div>
-                <div class="relative group text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 border border-gold-500/30 rounded-full flex items-center justify-center text-gold-500 font-serif text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">ג</div>
-                    <h3 class="text-white text-xl font-serif mb-3">הופעה בבית הדין</h3>
-                    <p class="text-slate-400 text-sm font-light">ייצוג נחרץ, רהוט ומכובד השולט ברזי הדיון ההלכתי.</p>
-                </div>
-                <div class="relative group text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 mx-auto bg-navy-900 border border-gold-500/30 rounded-full flex items-center justify-center text-gold-500 font-serif text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">ד</div>
-                    <h3 class="text-white text-xl font-serif mb-3">גמר דין</h3>
-                    <p class="text-slate-400 text-sm font-light">ליווי עד לקבלת פסק הדין וביצועו המלא לשביעות רצון הלקוח.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Journey Timeline -->
-    <section id="timeline" class="py-24 bg-white dark:bg-navy-900 overflow-hidden relative">
-        <div class="container mx-auto px-6 md:px-12 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-gold-600 font-bold tracking-[0.4em] text-[10px] uppercase">התהליך שלך איתנו</span>
-                <h2 class="serif text-5xl mt-4 text-navy-950 dark:text-white">המסע המשותף</h2>
-            </div>
-
-            <div class="relative">
-                <div class="timeline-line h-full"></div>
-                <!-- Steps (Existing code kept as is, visually structured) -->
-                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between mb-16 group">
-                    <div class="md:w-5/12 text-center md:text-left mb-6 md:mb-0" data-aos="fade-right">
-                        <h3 class="text-2xl font-serif text-gold-600 mb-2">1. פגישת אבחון וייעוץ</h3>
-                        <p class="text-slate-500 font-light text-sm">ניתוח מעמיק של המקרה, הבנת הצרכים והמטרות.</p>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-navy-950 border-2 border-gold-500 flex items-center justify-center text-gold-500 font-bold text-xs relative z-20 shadow-lg">1</div>
-                    <div class="md:w-5/12"></div>
-                </div>
-                <div class="relative z-10 flex flex-col md:flex-row-reverse items-center justify-between mb-16 group">
-                    <div class="md:w-5/12 text-center md:text-right mb-6 md:mb-0" data-aos="fade-left">
-                        <h3 class="text-2xl font-serif text-gold-600 mb-2">2. בניית תיק ואסטרטגיה</h3>
-                        <p class="text-slate-500 font-light text-sm">איסוף מסמכים, גיבוש טענות הלכתיות מנצחות.</p>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-navy-950 border-2 border-gold-500 flex items-center justify-center text-gold-500 font-bold text-xs relative z-20 shadow-lg">2</div>
-                    <div class="md:w-5/12"></div>
-                </div>
-                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between mb-16 group">
-                    <div class="md:w-5/12 text-center md:text-left mb-6 md:mb-0" data-aos="fade-right">
-                        <h3 class="text-2xl font-serif text-gold-600 mb-2">3. ייצוג וניהול משא ומתן</h3>
-                        <p class="text-slate-500 font-light text-sm">הופעה בבית הדין, חקירות וסיכומים.</p>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-navy-950 border-2 border-gold-500 flex items-center justify-center text-gold-500 font-bold text-xs relative z-20 shadow-lg">3</div>
-                    <div class="md:w-5/12"></div>
-                </div>
-                <div class="relative z-10 flex flex-col md:flex-row-reverse items-center justify-between group">
-                    <div class="md:w-5/12 text-center md:text-right mb-6 md:mb-0" data-aos="fade-left">
-                        <h3 class="text-2xl font-serif text-gold-600 mb-2">4. סגירת מעגל וביצוע</h3>
-                        <p class="text-slate-500 font-light text-sm">וידוא ביצוע ההחלטות וסגירת התיק לשביעות רצונך.</p>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-navy-950 border-2 border-gold-500 flex items-center justify-center text-gold-500 font-bold text-xs relative z-20 shadow-lg">4</div>
-                    <div class="md:w-5/12"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section id="services" class="py-24 bg-navy-950 border-t border-gold-500/5">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-gold-600 font-bold tracking-[0.4em] text-[10px] uppercase">התמחויות המשרד</span>
-                <h2 class="serif text-5xl mt-4 text-white">תחומי פסיקה וייצוג</h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Services Cards -->
-                <div class="glass-card p-10 hover:border-gold-500 transition-all group bg-navy-900">
-                    <h3 class="serif text-3xl mb-6 text-gold-500">אבן העזר - אישות</h3>
-                    <p class="text-slate-400 font-light leading-relaxed mb-8">ניהול הליכי גירושין מורכבים, תביעות כתובה, בירור מעמד אישי ומזונות.</p>
-                    <ul class="text-xs space-y-3 text-slate-500 font-bold uppercase tracking-tighter check-list">
-                        <li>ייצוג בסידור גט</li>
-                        <li>שלום בית</li>
-                        <li>משמורת והסדרי ראייה</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-10 hover:border-gold-500 transition-all group bg-navy-900">
-                    <h3 class="serif text-3xl mb-6 text-gold-500">חושן משפט - ממונות</h3>
-                    <p class="text-slate-400 font-light leading-relaxed mb-8">סכסוכים עסקיים, דיני שכנים ושותפויות. בוררות עסקית לפי דין תורה.</p>
-                    <ul class="text-xs space-y-3 text-slate-500 font-bold uppercase tracking-tighter check-list">
-                        <li>בוררויות עסקיות</li>
-                        <li>פירוק שותפויות</li>
-                        <li>דיני נזיקין</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-10 hover:border-gold-500 transition-all group bg-navy-900">
-                    <h3 class="serif text-3xl mb-6 text-gold-500">ירושות וצוואות</h3>
-                    <p class="text-slate-400 font-light leading-relaxed mb-8">עריכת צוואות המשלבות תוקף הלכתי עם תוקף חוקי אזרחי.</p>
-                    <ul class="text-xs space-y-3 text-slate-500 font-bold uppercase tracking-tighter check-list">
-                        <li>צוואות הלכתיות</li>
-                        <li>ניהול עזבונות</li>
-                        <li>התנגדות לצוואה</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: Focus on Arbitration (Borrerut) -->
-    <section id="arbitration" class="py-24 bg-gold-50 dark:bg-navy-950 relative border-t border-gold-500/10">
-        <div class="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <span class="text-gold-600 font-bold text-xs uppercase tracking-widest mb-2 block">פתרון סכסוכים חכם</span>
-                <h2 class="serif text-4xl md:text-5xl text-navy-950 dark:text-white mb-6">בוררות עסקית מהירה</h2>
-                <p class="text-slate-500 leading-relaxed mb-6">
-                    במציאות העסקית של ימינו, זמן הוא כסף. סחבת משפטית בבתי המשפט האזרחיים יכולה למוטט עסקים ושותפויות. בוררות על פי דין תורה מציעה אלטרנטיבה מהירה, יעילה ודיסקרטית.
-                </p>
-                <div class="grid grid-cols-2 gap-6 mt-8">
-                    <div>
-                        <h4 class="font-bold text-navy-900 dark:text-gold-500 mb-2">מהירות</h4>
-                        <p class="text-xs text-slate-500">סיום תיקים בתוך שבועות או חודשים ספורים, ולא שנים.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-navy-900 dark:text-gold-500 mb-2">דיסקרטיות</h4>
-                        <p class="text-xs text-slate-500">ההליך חסוי לחלוטין ומונע נזק תדמיתי לעסק.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-navy-900 dark:text-gold-500 mb-2">עלות</h4>
-                        <p class="text-xs text-slate-500">חיסכון משמעותי בהוצאות משפט מתמשכות.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-navy-900 dark:text-gold-500 mb-2">תוקף חוקי</h4>
-                        <p class="text-xs text-slate-500">פסק הבורר ניתן לאכיפה בהוצאה לפועל כפסק דין לכל דבר.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="relative" data-aos="fade-left">
-                <div class="absolute -inset-4 bg-gold-500/20 rounded-sm rotate-2"></div>
-                <div class="relative bg-white dark:bg-navy-900 p-8 rounded-sm shadow-xl border border-gold-500/20">
-                    <h4 class="serif text-2xl mb-4 text-center">הליך בוררות לדוגמא</h4>
+                <!-- תפילין -->
+                <div data-aos="fade-right">
+                    <h3 class="font-serif text-3xl font-bold text-navy mb-10 border-r-4 border-gold pr-4 uppercase tracking-tighter">תפילין מהודרות</h3>
                     <div class="space-y-4">
-                        <div class="flex items-center gap-4 bg-slate-50 dark:bg-navy-950 p-3 rounded">
-                            <div class="w-8 h-8 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-xs">1</div>
-                            <span class="text-sm font-bold">חתימה על שטר בוררות מחייב</span>
+                        <div class="flex justify-between items-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm transition-all hover:border-gold/40">
+                            <span class="font-bold text-navy flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-gold rounded-full"></span> בתים מכונה
+                            </span>
+                            <span class="font-serif text-2xl font-black">₪3,500</span>
                         </div>
-                        <div class="flex items-center gap-4 bg-slate-50 dark:bg-navy-950 p-3 rounded">
-                            <div class="w-8 h-8 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-xs">2</div>
-                            <span class="text-sm font-bold">ישיבת שמיעת טענות וראיות</span>
+                        <div class="flex justify-between items-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm transition-all hover:border-gold/40">
+                            <span class="font-bold text-navy flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-gold rounded-full"></span> בתים ר"ר מכוון
+                            </span>
+                            <span class="font-serif text-2xl font-black">₪3,800</span>
                         </div>
-                        <div class="flex items-center gap-4 bg-slate-50 dark:bg-navy-950 p-3 rounded">
-                            <div class="w-8 h-8 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-xs">3</div>
-                            <span class="text-sm font-bold">חקירת דרישה ובירור ההלכה</span>
+                        <div class="flex justify-between items-center p-6 bg-navy text-gold-light rounded-xl shadow-xl">
+                            <div>
+                                <span class="font-bold text-lg block italic">גודל "פיצפוני"</span>
+                                <span class="text-[9px] uppercase opacity-60 tracking-[0.2em]">Collector's Mini Edition</span>
+                            </div>
+                            <span class="font-serif text-3xl font-black">₪6,000</span>
                         </div>
-                        <div class="flex items-center gap-4 bg-slate-50 dark:bg-navy-950 p-3 rounded">
-                            <div class="w-8 h-8 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-xs">4</div>
-                            <span class="text-sm font-bold">מתן פסק דין מנומק וסופי</span>
+                        <div class="flex justify-center pt-4">
+                            <div class="text-center text-gray-400 text-[10px] tracking-widest uppercase">
+                                טלית נרתיק וריקמה: <span class="text-navy font-bold">₪580</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Case Studies -->
-    <section id="cases" class="py-24 bg-navy-950 border-t border-gold-500/10">
-        <div class="container mx-auto px-6 md:px-12">
-            <h2 class="serif text-4xl text-white mb-12 text-center">תיקים מהשטח</h2>
-            <div class="grid lg:grid-cols-2 gap-10">
-                <div class="bg-navy-900 p-8 border-r-4 border-gold-500" data-aos="fade-right">
-                    <span class="text-gold-500 text-xs font-bold uppercase tracking-wider">דיני אישות</span>
-                    <h3 class="serif text-2xl text-white mt-2 mb-4">הצלת הכתובה: 500,000 ש"ח</h3>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        בתיק גירושין מורכב, הבעל טען כי האישה "מורדת" ומפסידה את כתובתה. באמצעות הוכחת "אמתלא" הלכתית להתנהגות האישה וניתוח מעמיק של הראיות, הוכחנו כי הבעל הוא הגורם לקרע. בית הדין פסק חיוב מלא של הכתובה וההצמדה.
-                    </p>
+                <!-- מזוזות -->
+                <div data-aos="fade-left">
+                    <div class="bg-navy p-10 rounded-2xl shadow-2xl relative overflow-hidden border border-gold/20">
+                        <!-- Corner Decoration -->
+                        <div class="corner-decoration top-left"></div>
+                        <div class="corner-decoration bottom-right"></div>
+                        
+                        <h3 class="font-serif text-4xl font-bold text-gold mb-10 text-center">מזוזות מהודרות</h3>
+                        <div class="space-y-8">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                                <div class="text-white">
+                                    <p class="text-lg font-light">גודל 15 ס"מ</p>
+                                    <p class="text-[9px] text-gold/60 uppercase tracking-widest">Standard Premium</p>
+                                </div>
+                                <span class="font-serif text-3xl font-bold text-gold">₪350</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                                <div class="text-white">
+                                    <p class="text-lg font-light">גודל 20 ס"מ</p>
+                                    <p class="text-[9px] text-gold/60 uppercase tracking-widest">Grand Luxury</p>
+                                </div>
+                                <span class="font-serif text-3xl font-bold text-gold">₪470</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                                <div class="text-white">
+                                    <p class="text-lg font-light">גודל 25 ס"מ</p>
+                                    <p class="text-[9px] text-gold/60 uppercase tracking-widest">Imperial Format</p>
+                                </div>
+                                <span class="font-serif text-3xl font-bold text-gold">₪570</span>
+                            </div>
+                        </div>
+                        <p class="mt-8 text-center text-white/30 text-[10px] italic">נכתב בקדושה ובטהרה על קלף שליל משובח</p>
+                    </div>
                 </div>
-                <div class="bg-navy-900 p-8 border-r-4 border-gold-500" data-aos="fade-left">
-                    <span class="text-gold-500 text-xs font-bold uppercase tracking-wider">דיני ממונות</span>
-                    <h3 class="serif text-2xl text-white mt-2 mb-4">פירוק שותפות במפעל</h3>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        סכסוך בין שותפים איים למוטט מפעל משגשג. במקום הליך משפטי ארוך, ביצענו הליך בוררות בזק ("גוד או איגוד") שאפשר לאחד השותפים לרכוש את חלקו של השני במחיר הוגן, תוך 30 יום, ולהציל את העסק.
-                    </p>
-                </div>
+
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Halachic Lexicon -->
-    <section id="lexicon" class="py-24 bg-white dark:bg-navy-900">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="text-center mb-12">
-                <h2 class="serif text-4xl text-navy-950 dark:text-white">מילון מונחים הלכתי</h2>
-                <p class="text-slate-500 mt-2">מושגי יסוד שכל מתדיין בבית הדין צריך להכיר</p>
-            </div>
-            <div class="space-y-4">
-                <details class="group bg-slate-50 dark:bg-navy-950 border border-gold-500/20 p-4 rounded cursor-pointer">
-                    <summary class="flex justify-between items-center font-serif text-lg text-navy-900 dark:text-white list-none outline-none">
-                        קניין סודר (קניין חליפין)
-                        <span class="text-gold-500 transition-transform group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="mt-4 text-slate-500 font-light text-sm leading-relaxed">
-                        מעשה קניין סמלי שבו אדם מקבל על עצמו התחייבות באמצעות הרמת חפץ (כגון עט או מטפחת). זהו הכלי המרכזי בבתי הדין להעניק תוקף להסכמות.
-                    </div>
-                </details>
-                <details class="group bg-slate-50 dark:bg-navy-950 border border-gold-500/20 p-4 rounded cursor-pointer">
-                    <summary class="flex justify-between items-center font-serif text-lg text-navy-900 dark:text-white list-none outline-none">
-                        מדור ספציפי
-                        <span class="text-gold-500 transition-transform group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="mt-4 text-slate-500 font-light text-sm leading-relaxed">
-                        זכות האישה (והילדים) להמשיך לגור באותו הבית בו חיו, כחלק מחובת המזונות של הבעל. צו זה יכול לעכב פירוק שיתוף בדירה.
-                    </div>
-                </details>
-                <details class="group bg-slate-50 dark:bg-navy-950 border border-gold-500/20 p-4 rounded cursor-pointer">
-                    <summary class="flex justify-between items-center font-serif text-lg text-navy-900 dark:text-white list-none outline-none">
-                        אסמכתא
-                        <span class="text-gold-500 transition-transform group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="mt-4 text-slate-500 font-light text-sm leading-relaxed">
-                        התחייבות התלויה בתנאי שצד אחד בטוח שלא יתקיים (כמו קנס מוגזם). בהלכה יש בעיה באכיפתה, ונדרש ניסוח "דלא כאסמכתא".
-                    </div>
-                </details>
-                <details class="group bg-slate-50 dark:bg-navy-950 border border-gold-500/20 p-4 rounded cursor-pointer">
-                    <summary class="flex justify-between items-center font-serif text-lg text-navy-900 dark:text-white list-none outline-none">
-                        שטר בוררות
-                        <span class="text-gold-500 transition-transform group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="mt-4 text-slate-500 font-light text-sm leading-relaxed">
-                        הסכם עליו חותמים הצדדים לפני תחילת דיון בפני בורר או בית דין לממונות. חתימה זו קריטית כדי לתת תוקף חוקי לפסק הדין ולאפשר את אכיפתו בהוצאה לפועל.
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: Myths vs Reality Section -->
-    <section id="myths" class="py-24 bg-navy-900 relative">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="serif text-3xl md:text-4xl text-white mb-6">מיתוסים מול מציאות בבית הדין</h2>
-                <p class="text-slate-400 text-sm">התפיסה הציבורית לגבי בתי הדין לא תמיד תואמת את המציאות ההלכתית.</p>
-            </div>
+    <!-- Final Call to Action -->
+    <section class="py-32 bg-navy-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 parallax-bg" style="background-image: url('https://www.transparenttextures.com/patterns/black-linen-2.png');"></div>
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-up">
+            <h2 class="font-serif text-5xl mb-6">להזמנה אישית ומחייבת</h2>
+            <p class="text-gold tracking-widest text-sm mb-12 uppercase">Begin your legacy of sanctity today</p>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-navy-950 p-8 border border-gold-500/10 rounded-sm">
-                    <div class="text-red-400 font-bold text-xs uppercase mb-2">מיתוס</div>
-                    <h4 class="text-white font-serif text-xl mb-4">"בבית הדין האישה תמיד מפסידה"</h4>
-                    <div class="h-[1px] bg-white/10 w-full mb-4"></div>
-                    <div class="text-green-400 font-bold text-xs uppercase mb-2">המציאות</div>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        ההלכה מגנה על זכויות האישה באופן נרחב, כולל זכות למדור, מזונות אישה (שאינם קיימים באזרחי), וכתובה. ייצוג נכון יכול להפוך את בית הדין לזירה המועדפת לאישה.
-                    </p>
-                </div>
-                
-                <div class="bg-navy-950 p-8 border border-gold-500/10 rounded-sm">
-                    <div class="text-red-400 font-bold text-xs uppercase mb-2">מיתוס</div>
-                    <h4 class="text-white font-serif text-xl mb-4">"דין תורה מיושן ולא רלוונטי לעסקים"</h4>
-                    <div class="h-[1px] bg-white/10 w-full mb-4"></div>
-                    <div class="text-green-400 font-bold text-xs uppercase mb-2">המציאות</div>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        חושן משפט מתעדכן כל העת ע"י פוסקים המכירים את המציאות המסחרית. בוררות תורנית היא לעיתים קרובות יעילה, חכמה וגמישה יותר מהליך משפטי פורמלי ונוקשה.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section id="articles" class="py-24 bg-gold-50 dark:bg-navy-950 relative overflow-hidden">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
-                <div>
-                    <span class="text-gold-600 font-bold tracking-widest text-xs uppercase">מנחת אלדר</span>
-                    <h2 class="serif text-5xl mt-2 italic">מאמרים מקצועיים</h2>
-                </div>
-                <a href="mailto:Tifarteha@gmail.com?subject=בקשת קבלת מאמרים" class="text-gold-600 font-bold border-b border-gold-500/30 pb-1 hover:text-gold-400 transition-colors mt-4 md:mt-0">להרשמה למאמרים במייל →</a>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-navy-900 p-8 border border-gold-500/10 hover:border-gold-500/40 transition-all group shadow-sm" data-aos="fade-up">
-                    <div class="text-gold-600 text-[10px] font-black tracking-widest mb-4">דיני אישות</div>
-                    <h3 class="serif text-2xl mb-4 group-hover:text-gold-500 transition-colors italic">מעמדה ההלכתי של הכתובה</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">סקירה מעמיקה של התפתחות פסיקת בתי הדין הרבניים בנושא הצמדת הכתובה למדד ודין "מתנה"...</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest text-navy-900 dark:text-white border-b border-gold-500 pb-1">קרא עוד</a>
-                </div>
-                <div class="bg-white dark:bg-navy-900 p-8 border border-gold-500/10 hover:border-gold-500/40 transition-all group shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-gold-600 text-[10px] font-black tracking-widest mb-4">דיני ממונות</div>
-                    <h3 class="serif text-2xl mb-4 group-hover:text-gold-500 transition-colors italic">בוררות עסקית לפי דין תורה</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">מדוע בחירה בבית דין פרטי לממונות עדיפה לפעמים על מערכת המשפט האזרחית, ואיך מנסחים שטר בוררות...</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest text-navy-900 dark:text-white border-b border-gold-500 pb-1">קרא עוד</a>
-                </div>
-                <div class="bg-white dark:bg-navy-900 p-8 border border-gold-500/10 hover:border-gold-500/40 transition-all group shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-gold-600 text-[10px] font-black tracking-widest mb-4">ירושות וצוואות</div>
-                    <h3 class="serif text-2xl mb-4 group-hover:text-gold-500 transition-colors italic">צוואה הלכתית לעומת אזרחית</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">ניתוח המושג "מהיום ולאחר מיתה" והבטחת קיום רצון המוריש ללא חשש פסילת ירושה...</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest text-navy-900 dark:text-white border-b border-gold-500 pb-1">קרא עוד</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-white dark:bg-navy-900">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-gold-600 font-bold tracking-[0.4em] text-[10px] uppercase">עדות ויושרה</span>
-                <h2 class="serif text-5xl mt-4 italic">המלצות הקהילה</h2>
-                <div class="section-divider mt-6 opacity-20"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card p-10 shadow-lg hover:shadow-xl transition-all" data-aos="fade-up">
-                    <div class="text-gold-500 mb-6 text-2xl italic">"</div>
-                    <p class="italic text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
-                        "הרב אלדר ליווה אותנו בסכסוך ירושה סבוך ומכאיב. בזכות הידע ההלכתי הרחב וגישתו המפייסת, הצלחנו להגיע להסכמה שכיבדה את המנוח ושמרה על שלום הבית."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gold-100 dark:bg-gold-900/30 rounded-full flex items-center justify-center text-gold-600 font-bold italic">מ.ב</div>
-                        <div>
-                            <div class="font-bold text-sm">מ. ב.</div>
-                            <div class="text-[10px] text-slate-400 uppercase tracking-widest">נתיבות</div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <a href="tel:0528219928" class="group flex items-center justify-between p-8 border border-white/10 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="text-right">
+                        <p class="text-[10px] text-gold uppercase mb-1 font-bold">Direct Line</p>
+                        <p class="text-3xl font-bold tracking-tighter">052-821-9928</p>
                     </div>
-                </div>
-
-                <div class="testimonial-card p-10 shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-gold-500 mb-6 text-2xl italic">"</div>
-                    <p class="italic text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
-                        "טוען רבני שמדבר בגובה העיניים ומבין את נפש האדם לא פחות מאשר את השולחן ערוך. הייצוג שלו בבית הדין היה רהוט, נחרץ ומכובד ביותר."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gold-100 dark:bg-gold-900/30 rounded-full flex items-center justify-center text-gold-600 font-bold italic">ש.ל</div>
-                        <div>
-                            <div class="font-bold text-sm">ש. ל.</div>
-                            <div class="text-[10px] text-slate-400 uppercase tracking-widest">אשקלון</div>
-                        </div>
+                    <div class="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
                     </div>
-                </div>
-
-                <div class="testimonial-card p-10 shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-gold-500 mb-6 text-2xl italic">"</div>
-                    <p class="italic text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
-                        "היכולת של הרב לנתח סוגיות בחושן משפט ולהביא פתרונות יצירתיים לבוררות עסקית היא נדירה. המקצועיות שלו חסכה לנו שנים של דיונים מיותרים."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gold-100 dark:bg-gold-900/30 rounded-full flex items-center justify-center text-gold-600 font-bold italic">א.ה</div>
-                        <div>
-                            <div class="font-bold text-sm">א. ה.</div>
-                            <div class="text-[10px] text-slate-400 uppercase tracking-widest">בני ברק</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-navy-950 border-t border-gold-500/10">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="serif text-4xl text-white text-center mb-12">שאלות נפוצות</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-navy-900 border border-gold-500/20 p-6 rounded-sm">
-                    <h4 class="text-gold-500 font-bold mb-2">האם החלטת בורר מחייבת?</h4>
-                    <p class="text-slate-400 text-sm">כן. פסק בורר דינו כפסק דין של בית משפט לכל דבר ועניין, וניתן לאכיפה בהוצאה לפועל לאחר אישורו.</p>
-                </div>
-                <div class="bg-navy-900 border border-gold-500/20 p-6 rounded-sm">
-                    <h4 class="text-gold-500 font-bold mb-2">מה ההבדל בין עו"ד לטוען רבני?</h4>
-                    <p class="text-slate-400 text-sm">טוען רבני מתמחה בדין העברי ובשפה ההלכתית של בתי הדין הרבניים, יתרון קריטי כאשר הדיינים פוסקים לפי שולחן ערוך.</p>
-                </div>
-                <div class="bg-navy-900 border border-gold-500/20 p-6 rounded-sm">
-                    <h4 class="text-gold-500 font-bold mb-2">כמה זמן אורך הליך גירושין?</h4>
-                    <p class="text-slate-400 text-sm">הזמן משתנה בהתאם למורכבות התיק. בהסכמה, ניתן לסיים תוך שבועות. בסכסוך, אנו פועלים לקידום מהיר ע"י אסטרטגיה חדה.</p>
-                </div>
-                <div class="bg-navy-900 border border-gold-500/20 p-6 rounded-sm">
-                    <h4 class="text-gold-500 font-bold mb-2">האם ניתן לערוך צוואה הלכתית מחייבת?</h4>
-                    <p class="text-slate-400 text-sm">בהחלט. אנו עורכים צוואות המשלבות נוסח הלכתי ("מתנה מחיים") ונוסח חוקי, המונעות התנגדויות עתידיות ומקיימות את רצון המצווה.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ethical Code -->
-    <section class="py-24 bg-gold-50 dark:bg-navy-950 relative border-t border-gold-500/10">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="serif text-3xl md:text-4xl text-navy-950 dark:text-white mb-12">הקוד האתי שלנו</h2>
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="p-6">
-                    <div class="w-16 h-16 mx-auto bg-gold-500/10 rounded-full flex items-center justify-center text-gold-600 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2">שקיפות מלאה</h4>
-                    <p class="text-sm text-slate-500">שיקוף אמיתי של סיכויי התיק ללא הבטחות שווא.</p>
-                </div>
-                <div class="p-6">
-                    <div class="w-16 h-16 mx-auto bg-gold-500/10 rounded-full flex items-center justify-center text-gold-600 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2">חיסיון מוחלט</h4>
-                    <p class="text-sm text-slate-500">שמירה קנאית על פרטיות הלקוח וסודותיו.</p>
-                </div>
-                <div class="p-6">
-                    <div class="w-16 h-16 mx-auto bg-gold-500/10 rounded-full flex items-center justify-center text-gold-600 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2">זמינות ורגישות</h4>
-                    <p class="text-sm text-slate-500">אוזן קשבת וליווי אישי גם ברגעים הקשים.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Forms & Links Section -->
-    <section id="forms" class="py-24 bg-navy-950">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="serif text-5xl mb-6 italic text-white">טפסים וקישורים</h2>
-                <p class="text-slate-400">לנוחיותכם, ריכזנו טפסים חיוניים להגשת תביעות בבית הדין.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="https://www.gov.il/he/service/claim_to_divorce" target="_blank" class="bg-navy-900 p-8 rounded shadow-sm border border-gold-500/20 hover:border-gold-500 transition-all flex flex-col justify-between">
-                    <div class="text-xs font-black text-gold-600 mb-2">גירושין</div>
-                    <div class="font-bold text-lg mb-4 italic serif text-white">פתיחת תיק גירושין</div>
-                    <div class="text-gold-500 flex items-center gap-2 text-xs font-bold">קישור רשמי <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></div>
                 </a>
-                <a href="#" class="bg-navy-900 p-8 rounded shadow-sm border border-gold-500/20 hover:border-gold-500 transition-all flex flex-col justify-between">
-                    <div class="text-xs font-black text-gold-600 mb-2">ממונות</div>
-                    <div class="font-bold text-lg mb-4 italic serif text-white">שטר בוררות</div>
-                    <div class="text-gold-500 flex items-center gap-2 text-xs font-bold">הורדת קובץ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg></div>
-                </a>
-                <a href="mailto:Tifarteha@gmail.com?subject=בקשת טופס צוואה" class="bg-navy-900 p-8 rounded shadow-sm border border-gold-500/20 hover:border-gold-500 transition-all flex flex-col justify-between">
-                    <div class="text-xs font-black text-gold-600 mb-2">צוואות</div>
-                    <div class="font-bold text-lg mb-4 italic serif text-white">נוסח צוואה הלכתית</div>
-                    <div class="text-gold-500 flex items-center gap-2 text-xs font-bold">בקשה במייל <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                </a>
-                <a href="https://www.gov.il/he/Departments/rabbinical_courts" target="_blank" class="bg-navy-900 p-8 rounded shadow-sm border border-gold-500/20 hover:border-gold-500 transition-all flex flex-col justify-between">
-                    <div class="text-xs font-black text-gold-600 mb-2">מידע</div>
-                    <div class="font-bold text-lg mb-4 italic serif text-white">אתר בתי הדין</div>
-                    <div class="text-gold-500 flex items-center gap-2 text-xs font-bold">כניסה לאתר <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></div>
+                <a href="tel:0534192798" class="group flex items-center justify-between p-8 border border-white/10 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="text-right">
+                        <p class="text-[10px] text-gold uppercase mb-1 font-bold">Studio Office</p>
+                        <p class="text-3xl font-bold tracking-tighter">053-419-2798</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    </div>
                 </a>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24">
-        <div class="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-start">
-            <div data-aos="fade-right">
-                <h2 class="serif text-6xl mb-12 gold-text-shine italic font-light leading-tight">נשמח להקשיב <br>& לייעץ</h2>
-                <div class="space-y-12">
-                    <a href="tel:0528219928" class="flex items-center gap-8 group">
-                        <div class="w-14 h-14 bg-gold-500 rounded-full flex items-center justify-center text-navy-950 shadow-xl group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
-                        </div>
-                        <div>
-                            <div class="text-xs font-bold text-gold-600 uppercase tracking-widest mb-1">טלפון ישיר</div>
-                            <div class="text-3xl font-black">052-8219928</div>
-                        </div>
-                    </a>
-                    <a href="mailto:Tifarteha@gmail.com" class="flex items-center gap-8 group">
-                        <div class="w-14 h-14 bg-gold-500 rounded-full flex items-center justify-center text-navy-950 shadow-xl group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
-                        </div>
-                        <div>
-                            <div class="text-xs font-bold text-gold-600 uppercase tracking-widest mb-1">דואר אלקטרוני</div>
-                            <div class="text-2xl font-bold">Tifarteha@gmail.com</div>
-                        </div>
-                    </a>
-                    <div class="flex items-center gap-8 group">
-                        <div class="w-14 h-14 bg-gold-500 rounded-full flex items-center justify-center text-navy-950 shadow-xl group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
-                        </div>
-                        <div>
-                            <div class="text-xs font-bold text-gold-600 uppercase tracking-widest mb-1">מיקום המשרד</div>
-                            <div class="text-xl font-bold">נווה שרון 15, נתיבות</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white dark:bg-navy-900 p-10 shadow-2xl rounded border-t-4 border-gold-500" data-aos="fade-left">
-                <form action="https://formspree.io/f/xoqgygjr" method="POST" class="space-y-8">
-                    <h4 class="serif text-3xl mb-4 italic">פנייה דיסקרטית</h4>
-                    <div>
-                        <input type="text" name="name" required placeholder="שם מלא" class="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-gold-500 transition-all text-lg font-light">
-                    </div>
-                    <div>
-                        <input type="tel" name="phone" required placeholder="טלפון לחזרה" class="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-gold-500 transition-all text-lg font-light">
-                    </div>
-                    <div>
-                        <textarea name="message" rows="4" placeholder="תמצית המקרה (דיסקרטיות מובטחת)" class="w-full bg-transparent border-b border-slate-200 py-4 outline-none focus:border-gold-500 transition-all text-lg font-light resize-none"></textarea>
-                    </div>
-                    <button type="submit" class="btn-luxury w-full bg-navy-950 text-gold-500 py-6 font-bold uppercase tracking-widest shadow-xl">שליחת הודעה</button>
-                </form>
+            <div class="mt-16 flex flex-col items-center">
+                <a href="mailto:Tifarteha@gmail.com" class="text-gold-light border-b border-gold/40 pb-2 text-xl font-light hover:text-white transition-colors">
+                    Tifarteha@gmail.com
+                </a>
+                <p class="mt-8 opacity-40 text-[9px] uppercase tracking-[0.4em]">עיה"ק נתיבות, ת"ו</p>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Footer -->
-    <footer class="bg-navy-950 py-20 border-t border-gold-500/10">
-        <div class="container mx-auto px-6 text-center">
-            <div class="serif text-4xl gold-text-shine mb-4 italic">הרב אלדר לוי</div>
-            <p class="text-[10px] text-slate-500 uppercase tracking-[0.5em] mb-12">Torah Justice • Integrity • Wisdom</p>
-            
-            <div class="flex flex-wrap justify-center gap-8 mb-8 text-[10px] font-bold uppercase tracking-widest opacity-60">
-                <a href="#about" class="hover:text-gold-500">אודות</a>
-                <a href="#articles" class="hover:text-gold-500">מאמרים</a>
-                <a href="#services" class="hover:text-gold-500">התמחויות</a>
-                <a href="#forms" class="hover:text-gold-500">טפסים</a>
-                <a href="#testimonials" class="hover:text-gold-500">המלצות</a>
-                <a href="#contact" class="hover:text-gold-500">קשר</a>
-            </div>
-
-            <div class="mb-12 text-gold-500/60 font-bold text-sm">Tifarteha@gmail.com</div>
-            
-            <div class="text-[10px] text-slate-700 max-w-2xl mx-auto italic leading-loose">
-                &copy; 2024 כל הזכויות שמורות למשרד הרב אלדר לוי. המשרד פועל לפי דין תורה וכללי האתיקה. <br>
-                המידע באתר אינו מהווה תחליף לייעוץ הלכתי או משפטי פרטני.
-            </div>
+    <!-- Footer Seal -->
+    <footer class="bg-black py-10 text-center">
+        <div class="flex justify-center gap-10 opacity-20 text-[10px] font-latin tracking-[0.5em] text-white uppercase">
+            <span>Integrity</span>
+            <span>•</span>
+            <span>Artistry</span>
+            <span>•</span>
+            <span>Sanctity</span>
         </div>
     </footer>
 
+    <!-- Fixed Action Buttons for Mobile -->
+    <div class="fixed bottom-8 left-8 flex flex-col gap-4 z-50 md:hidden">
+        <a href="mailto:Tifarteha@gmail.com" class="w-16 h-16 bg-white text-navy rounded-full shadow-2xl flex items-center justify-center border border-gold/30 active:scale-90 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        </a>
+        <a href="tel:0528219928" class="w-16 h-16 premium-btn text-navy rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            setTimeout(() => {
-                loader.classList.add('opacity-0');
-                setTimeout(() => loader.style.display = 'none', 1000);
-            }, 800);
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 50,
+                easing: 'ease-out-back'
+            });
         });
 
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            navbar.classList.toggle('bg-white/95', window.scrollY > 50);
-            navbar.classList.toggle('dark:bg-navy-950/95', window.scrollY > 50);
-            navbar.classList.toggle('shadow-xl', window.scrollY > 50);
-            navbar.classList.toggle('py-2', window.scrollY > 50);
+        // Add smooth scroll offset for mobile
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
-
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.onclick = () => mobileMenu.classList.add('mobile-menu-active');
-        menuClose.onclick = () => mobileMenu.classList.remove('mobile-menu-active');
-        mobileMenu.onclick = (e) => { if(e.target.tagName === 'A') mobileMenu.classList.remove('mobile-menu-active'); };
     </script>
 </body>
 </html>
-
-<!-- End Google Tag Manager --><link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
-<link rel="alternate" type="application/rss+xml" title="אלחנן רבינסקי טוען רבני ומגשר &laquo; פיד‏" href="https://r-mediator.co.il/feed/" />
-<link rel="alternate" type="application/rss+xml" title="אלחנן רבינסקי טוען רבני ומגשר &laquo; פיד תגובות‏" href="https://r-mediator.co.il/comments/feed/" />
-<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
-img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
-/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
-</style>
-<style id='wp-emoji-styles-inline-css' type='text/css'>
-
-	img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-	}
-/*# sourceURL=wp-emoji-styles-inline-css */
-</style>
-<style id='classic-theme-styles-inline-css' type='text/css'>
-/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
-/*# sourceURL=/wp-includes/css/classic-themes.min.css */
-</style>
-<link rel='stylesheet' id='jet-engine-frontend-css' href='https://r-mediator.co.il/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.7.1.2' type='text/css' media='all' />
-<link rel='stylesheet' id='fontawsome-css' href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=1.0.5' type='text/css' media='all' />
-<link rel='stylesheet' id='sogo_accessibility-css' href='https://r-mediator.co.il/wp-content/plugins/sogo-accessibility/public/css/sogo-accessibility-public.css?ver=1.0.5' type='text/css' media='all' />
-<link rel='stylesheet' id='hello-elementor-css' href='https://r-mediator.co.il/wp-content/themes/hello-theme-master/style.min.css?ver=2.2.0' type='text/css' media='all' />
-<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://r-mediator.co.il/wp-content/themes/hello-theme-master/theme.min.css?ver=2.2.0' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-frontend-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/frontend-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-image-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/widget-image-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-nav-menu-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu-rtl.min.css?ver=3.29.2' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-icon-box-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/widget-icon-box-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='e-sticky-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.29.2' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-form-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/css/widget-form-rtl.min.css?ver=3.29.2' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-heading-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/widget-heading-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-posts-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/css/widget-posts-rtl.min.css?ver=3.29.2' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-icon-list-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/widget-icon-list-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='e-animation-shrink-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='e-animation-zoomIn-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/animations/styles/zoomIn.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.44.0' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-132-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/css/post-132.css?ver=1763663768' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome-5-all-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome-4-shim-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='namogo-icons-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-extras/assets/lib/nicons/css/nicons.css?ver=2.2.52' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-extras-frontend-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-extras/assets/css/frontend-rtl.min.css?ver=2.2.52' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-animated-headline-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/css/widget-animated-headline-rtl.min.css?ver=3.29.2' type='text/css' media='all' />
-<link rel='stylesheet' id='e-animation-fadeInUp-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-image-box-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/widget-image-box-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='widget-spacer-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/css/widget-spacer-rtl.min.css?ver=3.33.1' type='text/css' media='all' />
-<link rel='stylesheet' id='e-motion-fx-css' href='https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=3.29.2' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-171-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/css/post-171.css?ver=1763666564' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-156-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/css/post-156.css?ver=1763666564' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-254-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/css/post-254.css?ver=1763663768' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-gf-local-heebo-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/google-fonts/css/heebo.css?ver=1746691062' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-gf-local-alef-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/google-fonts/css/alef.css?ver=1746691013' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-gf-local-lato-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/google-fonts/css/lato.css?ver=1746691023' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-gf-local-montserrat-css' href='https://r-mediator.co.il/wp-content/uploads/elementor/google-fonts/css/montserrat.css?ver=1746691113' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-fa-brands-css' href='https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3' type='text/css' media='all' />
-<script type="text/javascript" src="https://r-mediator.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.33.1" id="font-awesome-4-shim-js"></script>
-<link rel="https://api.w.org/" href="https://r-mediator.co.il/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://r-mediator.co.il/wp-json/wp/v2/pages/171" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://r-mediator.co.il/xmlrpc.php?rsd" />
-<meta name="generator" content="WordPress 6.9" />
-<link rel='shortlink' href='https://r-mediator.co.il/' />
-<meta name="ti-site-data" content="eyJyIjoiMTowITc6MCEzMDowIiwibyI6Imh0dHBzOlwvXC9yLW1lZGlhdG9yLmNvLmlsXC93cC1hZG1pblwvYWRtaW4tYWpheC5waHA/YWN0aW9uPXRpX29ubGluZV91c2Vyc19nb29nbGUmYW1wO3A9JTJGJmFtcDtfd3Bub25jZT1lNDY5ZDVjMjI3In0=" /><meta name="generator" content="Elementor 3.33.1; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MTCB8C9');</script>
-<!-- End Google Tag Manager -->
-<!-- Global site tag (gtag.js) - Google Ads: 760781629 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-760781629"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-760781629');
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-086FF5CF9J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-086FF5CF9J');
-</script>
-			<style>
-				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
-				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
-					background-image: none !important;
-				}
-				@media screen and (max-height: 1024px) {
-					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
-					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
-						background-image: none !important;
-					}
-				}
-				@media screen and (max-height: 640px) {
-					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
-					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
-						background-image: none !important;
-					}
-				}
-			</style>
-			<link rel="icon" href="https://r-mediator.co.il/wp-content/uploads/2020/11/cropped-favicon-32x32.png" sizes="32x32" />
-<link rel="icon" href="https://r-mediator.co.il/wp-content/uploads/2020/11/cropped-favicon-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://r-mediator.co.il/wp-content/uploads/2020/11/cropped-favicon-180x180.png" />
-<meta name="msapplication-TileImage" content="https://r-mediator.co.il/wp-content/uploads/2020/11/cropped-favicon-270x270.png" />
-<style id='global-styles-inline-css' type='text/css'>
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-/*# sourceURL=global-styles-inline-css */
-</style>
-</head>
-<body class="rtl home wp-singular page-template page-template-elementor_header_footer page page-id-171 wp-theme-hello-theme-master elementor-default elementor-template-full-width elementor-kit-132 elementor-page elementor-page-171">
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTCB8C9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB476ZV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->		<div data-elementor-type="header" data-elementor-id="156" class="elementor elementor-156 elementor-location-header" data-elementor-post-type="elementor_library">
-					<section class="elementor-section elementor-top-section elementor-element elementor-element-2ca5e87 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="2ca5e87" data-element_type="section" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3b9bca8" data-id="3b9bca8" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<section class="elementor-section elementor-inner-section elementor-element elementor-element-04151e2 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="04151e2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-39fe900" data-id="39fe900" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-627d1ab elementor-widget elementor-widget-image" data-id="627d1ab" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-																<a href="https://r-mediator.co.il">
-							<img fetchpriority="high" width="703" height="424" src="https://r-mediator.co.il/wp-content/uploads/2020/07/NEW_LOGO.png" class="attachment-large size-large wp-image-515" alt="אלחנן רבינסקי - טוען רבני" srcset="https://r-mediator.co.il/wp-content/uploads/2020/07/NEW_LOGO.png 703w, https://r-mediator.co.il/wp-content/uploads/2020/07/NEW_LOGO-300x181.png 300w" sizes="(max-width: 703px) 100vw, 703px" />								</a>
-															</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-97f38f9" data-id="97f38f9" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-084dcdf elementor-nav-menu__align-center elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="084dcdf" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
-				<div class="elementor-widget-container">
-								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-drop-in">
-				<ul id="menu-1-084dcdf" class="elementor-nav-menu accessibility_menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-171 current_page_item menu-item-269"><a href="https://r-mediator.co.il/" aria-current="page" class="elementor-item elementor-item-active">ראשי</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-268"><a href="https://r-mediator.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item">אודות</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-353"><a href="#" class="elementor-item elementor-item-anchor">גירושין</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1164"><a href="https://r-mediator.co.il/%d7%9e%d7%aa%d7%92%d7%a8%d7%a9%d7%99%d7%9d-%d7%9b%d7%9a-%d7%aa%d7%a2%d7%a9%d7%95-%d7%90%d7%aa-%d7%96%d7%94-%d7%a0%d7%9b%d7%95%d7%9f/" class="elementor-sub-item">מתגרשים? כך תעשו את זה נכון!</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-584"><a href="https://r-mediator.co.il/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%99%d7%aa-%d7%92%d7%99%d7%a8%d7%95%d7%a9%d7%99%d7%9f/" class="elementor-sub-item">אסטרטגיית גירושין</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-585"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%94%d7%93%d7%99%d7%9f-%d7%94%d7%a8%d7%91%d7%a0%d7%99-%d7%a2%d7%9c-%d7%a7%d7%a6%d7%94-%d7%94%d7%9e%d7%96%d7%9c%d7%92/" class="elementor-sub-item">בית הדין הרבני – על קצה המזלג</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-354"><a href="#" class="elementor-item elementor-item-anchor">ממונות</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-736"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%93%d7%99%d7%9f-%d7%a6%d7%93%d7%a7/" class="elementor-sub-item">בית דין צדק</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-735"><a href="https://r-mediator.co.il/%d7%9c%d7%9e%d7%94-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99/" class="elementor-sub-item">למה טוען רבני?</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-435"><a href="https://r-mediator.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d-%d7%a9%d7%99%d7%9e%d7%95%d7%a9%d7%99%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%a8%d7%93%d7%94-%d7%97%d7%95%d7%a4%d7%a9%d7%99%d7%aa/" class="elementor-item">טפסים שימושיים</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-814"><a href="#" class="elementor-item elementor-item-anchor">מאמרים</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-816"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%a9%d7%a4%d7%97%d7%94/" class="elementor-sub-item">דיני משפחה</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-815"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%9e%d7%95%d7%a0%d7%95%d7%aa/" class="elementor-sub-item">דיני ממונות</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1624"><a href="https://r-mediator.co.il/%d7%a4%d7%a1%d7%a7%d7%99-%d7%93%d7%99%d7%9f/" class="elementor-item">פסקי דין</a></li>
-</ul>			</nav>
-					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false">
-			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
-					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
-				<ul id="menu-2-084dcdf" class="elementor-nav-menu accessibility_menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-171 current_page_item menu-item-269"><a href="https://r-mediator.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">ראשי</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-268"><a href="https://r-mediator.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item" tabindex="-1">אודות</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-353"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">גירושין</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1164"><a href="https://r-mediator.co.il/%d7%9e%d7%aa%d7%92%d7%a8%d7%a9%d7%99%d7%9d-%d7%9b%d7%9a-%d7%aa%d7%a2%d7%a9%d7%95-%d7%90%d7%aa-%d7%96%d7%94-%d7%a0%d7%9b%d7%95%d7%9f/" class="elementor-sub-item" tabindex="-1">מתגרשים? כך תעשו את זה נכון!</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-584"><a href="https://r-mediator.co.il/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%99%d7%aa-%d7%92%d7%99%d7%a8%d7%95%d7%a9%d7%99%d7%9f/" class="elementor-sub-item" tabindex="-1">אסטרטגיית גירושין</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-585"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%94%d7%93%d7%99%d7%9f-%d7%94%d7%a8%d7%91%d7%a0%d7%99-%d7%a2%d7%9c-%d7%a7%d7%a6%d7%94-%d7%94%d7%9e%d7%96%d7%9c%d7%92/" class="elementor-sub-item" tabindex="-1">בית הדין הרבני – על קצה המזלג</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-354"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">ממונות</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-736"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%93%d7%99%d7%9f-%d7%a6%d7%93%d7%a7/" class="elementor-sub-item" tabindex="-1">בית דין צדק</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-735"><a href="https://r-mediator.co.il/%d7%9c%d7%9e%d7%94-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99/" class="elementor-sub-item" tabindex="-1">למה טוען רבני?</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-435"><a href="https://r-mediator.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d-%d7%a9%d7%99%d7%9e%d7%95%d7%a9%d7%99%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%a8%d7%93%d7%94-%d7%97%d7%95%d7%a4%d7%a9%d7%99%d7%aa/" class="elementor-item" tabindex="-1">טפסים שימושיים</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-814"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">מאמרים</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-816"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%a9%d7%a4%d7%97%d7%94/" class="elementor-sub-item" tabindex="-1">דיני משפחה</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-815"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%9e%d7%95%d7%a0%d7%95%d7%aa/" class="elementor-sub-item" tabindex="-1">דיני ממונות</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1624"><a href="https://r-mediator.co.il/%d7%a4%d7%a1%d7%a7%d7%99-%d7%93%d7%99%d7%9f/" class="elementor-item" tabindex="-1">פסקי דין</a></li>
-</ul>			</nav>
-						</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-3718115" data-id="3718115" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-79f7fc8 elementor-position-right elementor-hidden-mobile elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="79f7fc8" data-element_type="widget" data-widget_type="icon-box.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-icon-box-wrapper">
-
-						<div class="elementor-icon-box-icon">
-				<a href="tel:025801515" class="elementor-icon" tabindex="-1" aria-label="02-5801515">
-				<i aria-hidden="true" class="fas fa-phone-alt"></i>				</a>
-			</div>
-			
-						<div class="elementor-icon-box-content">
-
-									<p class="elementor-icon-box-title">
-						<a href="tel:025801515" >
-							02-5801515						</a>
-					</p>
-				
-				
-			</div>
-			
-		</div>
-						</div>
-				</div>
-				<div class="elementor-element elementor-element-d924bb2 elementor-hidden-desktop elementor-hidden-tablet elementor-view-default elementor-widget elementor-widget-icon" data-id="d924bb2" data-element_type="widget" data-widget_type="icon.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-icon-wrapper">
-			<a class="elementor-icon" href="tel:025801515">
-			<i aria-hidden="true" class="fas fa-phone-alt"></i>			</a>
-		</div>
-						</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-43fc31c" data-id="43fc31c" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-363e335 elementor-align-right elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="363e335" data-element_type="widget" data-widget_type="button.default">
-				<div class="elementor-widget-container">
-									<div class="elementor-button-wrapper">
-					<a class="elementor-button elementor-button-link elementor-size-md" href="https://r-mediator.co.il/%d7%99%d7%a6%d7%99%d7%a8%d7%aa-%d7%a7%d7%a9%d7%a8-%d7%90%d7%9c%d7%97%d7%a0%d7%9f-%d7%a8%d7%91%d7%99%d7%a0%d7%a1%d7%a7%d7%99-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99/">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-icon">
-				<i aria-hidden="true" class="fas fa-angle-left"></i>			</span>
-									<span class="elementor-button-text">יצירת קשר</span>
-					</span>
-					</a>
-				</div>
-								</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-					</div>
-		</div>
-					</div>
-		</section>
-				</div>
-				<div data-elementor-type="wp-page" data-elementor-id="171" class="elementor elementor-171" data-elementor-post-type="page">
-						<section class="elementor-section elementor-top-section elementor-element elementor-element-1603075 elementor-section-height-min-height elementor-section-items-bottom elementor-section-boxed elementor-section-height-default" data-id="1603075" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4a7c513" data-id="4a7c513" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-a006ec5 elementor-headline--style-rotate elementor-widget elementor-widget-animated-headline" data-id="a006ec5" data-element_type="widget" data-settings="{&quot;headline_style&quot;:&quot;rotate&quot;,&quot;animation_type&quot;:&quot;blinds&quot;,&quot;rotating_text&quot;:&quot;\u05de\u05ea\u05d2\u05e8\u05e9\u05d9\u05dd?\n\u05e1\u05db\u05e1\u05d5\u05da \u05de\u05de\u05d5\u05e0\u05d9?\n\u05d6\u05e7\u05d5\u05e7\u05d9\u05dd \u05dc\u05d9\u05d9\u05e2\u05d5\u05e5?\n\u05e6\u05e8\u05d9\u05db\u05d9\u05dd \u05d9\u05d9\u05e6\u05d5\u05d2 \u05d1\u05d1\u05d9\u05ea \u05d4\u05d3\u05d9\u05df \u05d4\u05e8\u05d1\u05e0\u05d9?&quot;,&quot;loop&quot;:&quot;yes&quot;,&quot;rotate_iteration_delay&quot;:2500}" data-widget_type="animated-headline.default">
-				<div class="elementor-widget-container">
-							<h3 class="elementor-headline elementor-headline-animation-type-blinds elementor-headline-letters">
-				<span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper">
-					<span class="elementor-headline-dynamic-text elementor-headline-text-active">
-				מתגרשים?			</span>
-					<span class="elementor-headline-dynamic-text">
-				סכסוך&nbsp;ממוני?			</span>
-					<span class="elementor-headline-dynamic-text">
-				זקוקים&nbsp;לייעוץ?			</span>
-					<span class="elementor-headline-dynamic-text">
-				צריכים&nbsp;ייצוג&nbsp;בבית&nbsp;הדין&nbsp;הרבני?			</span>
-						</span>
-				</h3>
-						</div>
-				</div>
-				<div class="elementor-element elementor-element-c86631c elementor-widget elementor-widget-heading" data-id="c86631c" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h1 class="elementor-heading-title elementor-size-default">טוען רבני ומגשר אלחנן רבינסקי</h1>				</div>
-				</div>
-				<div class="elementor-element elementor-element-c7286fb elementor-widget elementor-widget-heading" data-id="c7286fb" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">אסטרטגיה מובילה לניצחון בבית הדין.</h2>				</div>
-				</div>
-				<section class="elementor-section elementor-inner-section elementor-element elementor-element-46aa2d0 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible" data-id="46aa2d0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;}">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-c35aca2" data-id="c35aca2" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-00747d0 elementor-widget elementor-widget-heading" data-id="00747d0" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default">פנו עוד היום</p>				</div>
-				</div>
-				<div class="elementor-element elementor-element-10cc5c0 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="10cc5c0" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
-				<div class="elementor-widget-container">
-							<form class="elementor-form" method="post" name="טופס יצירת קשר">
-			<input type="hidden" name="post_id" value="171"/>
-			<input type="hidden" name="form_id" value="10cc5c0"/>
-			<input type="hidden" name="referer_title" value="אלחנן רבינסקי טוען רבני ומגשר" />
-
-							<input type="hidden" name="queried_id" value="171"/>
-			
-			<div class="elementor-form-fields-wrapper elementor-labels-">
-								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-25 elementor-field-required">
-												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
-								שם מלא							</label>
-														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="שם מלא" required="required">
-											</div>
-								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-25 elementor-field-required">
-												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
-								אימייל							</label>
-														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="כתובת אימייל" required="required">
-											</div>
-								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_86ee1b9 elementor-col-25">
-												<label for="form-field-field_86ee1b9" class="elementor-field-label elementor-screen-only">
-								טלפון							</label>
-								<input size="1" type="tel" name="form_fields[field_86ee1b9]" id="form-field-field_86ee1b9" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="טלפון" pattern="[0-9()#&amp;+*-=.]+" title="מותר להשתמש רק במספרים ותווי טלפון (#, -, *, וכו&#039;).">
-
-						</div>
-								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-25 elementor-field-required">
-												<label for="form-field-message" class="elementor-field-label elementor-screen-only">
-								הודעה							</label>
-						<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="1" placeholder="תוכן ההודעה" required="required"></textarea>				</div>
-								<div class="elementor-field-type-text">
-					<input size="1" type="text" name="form_fields[field_0e264ae]" id="form-field-field_0e264ae" class="elementor-field elementor-size-sm " style="display:none !important;">				</div>
-								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
-					<button class="elementor-button elementor-size-sm" type="submit">
-						<span class="elementor-button-content-wrapper">
-																						<span class="elementor-button-text">אשמח שתחזרו אלי</span>
-													</span>
-					</button>
-				</div>
-			</div>
-		</form>
-						</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-1aaa103 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1aaa103" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-ee32bb3" data-id="ee32bb3" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-51d6022 elementor-position-top elementor-widget elementor-widget-image-box" data-id="51d6022" data-element_type="widget" data-widget_type="image-box.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="https://r-mediator.co.il/category/%d7%9e%d7%9e%d7%95%d7%a0%d7%95%d7%aa/" tabindex="-1"><img decoding="async" width="233" height="210" src="https://r-mediator.co.il/wp-content/uploads/2020/12/Group-100.png" class="attachment-full size-full wp-image-1119" alt="ממונות" /></a></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title"><a href="https://r-mediator.co.il/category/%d7%9e%d7%9e%d7%95%d7%a0%d7%95%d7%aa/">ממונות</a></h3></div></div>				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-d09113b" data-id="d09113b" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-6402b4e elementor-position-top elementor-widget elementor-widget-image-box" data-id="6402b4e" data-element_type="widget" data-widget_type="image-box.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="https://r-mediator.co.il/category/%d7%92%d7%99%d7%a8%d7%95%d7%a9%d7%99%d7%9f/" tabindex="-1"><img decoding="async" width="233" height="210" src="https://r-mediator.co.il/wp-content/uploads/2020/12/Group-500.png" class="attachment-full size-full wp-image-1120" alt="גירושין" /></a></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title"><a href="https://r-mediator.co.il/category/%d7%92%d7%99%d7%a8%d7%95%d7%a9%d7%99%d7%9f/">גירושין</a></h3></div></div>				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-c5de11d" data-id="c5de11d" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-0b78dc2 elementor-position-top elementor-widget elementor-widget-image-box" data-id="0b78dc2" data-element_type="widget" data-widget_type="image-box.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="https://r-mediator.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%95%d7%aa%d7%a9%d7%95%d7%91%d7%95%d7%aa/" tabindex="-1"><img loading="lazy" decoding="async" width="233" height="210" src="https://r-mediator.co.il/wp-content/uploads/2020/12/Group-800.png" class="attachment-full size-full wp-image-1121" alt="שאלות ותשובות" /></a></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title"><a href="https://r-mediator.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%95%d7%aa%d7%a9%d7%95%d7%91%d7%95%d7%aa/">שאלות ותשובות</a></h3></div></div>				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-0d919c6" data-id="0d919c6" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-36cb31e elementor-position-top elementor-widget elementor-widget-image-box" data-id="36cb31e" data-element_type="widget" data-widget_type="image-box.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><a href="https://r-mediator.co.il/%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99-%d7%90%d7%9c%d7%97%d7%a0%d7%9f-%d7%a8%d7%91%d7%99%d7%a0%d7%a1%d7%a7%d7%99/" tabindex="-1"><img loading="lazy" decoding="async" width="233" height="210" src="https://r-mediator.co.il/wp-content/uploads/2020/12/Group-120.png" class="attachment-full size-full wp-image-1122" alt="המלצות לקוחות" /></a></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title"><a href="https://r-mediator.co.il/%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99-%d7%90%d7%9c%d7%97%d7%a0%d7%9f-%d7%a8%d7%91%d7%99%d7%a0%d7%a1%d7%a7%d7%99/">המלצות לקוחות</a></h3></div></div>				</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-9e95c0d elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="9e95c0d" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-750adf0" data-id="750adf0" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-f6be4cc elementor-widget elementor-widget-heading" data-id="f6be4cc" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">מי אנחנו?</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-ea80c40 elementor-widget elementor-widget-text-editor" data-id="ea80c40" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-									<p>משרדנו מתמחה בייצוג משפטי בבתי הדין הרבניים, ונותן מענה נחוש ואפקטיבי לכל תיק, ולעיתים עד כדי מלחמה על מיצוי זכויות הלקוח מתחילה ועד סוף.</p><p>אנחנו מאמינים, כי אסטרטגיה יצירתית עם חשיבה 'מחוץ לקופסא' תוך שימוש בזרוע 'טוען הרבני' מחד ובזרוע 'מגשר' מאידך, היא זו שמביאה בס&quot;ד להצלחה בתיק.</p><p>השקעה והתמסרות לכל לקוח בתבונה וברגישות, היא אבן הבוחן לכל פעילות המשרד ולקוחותינו נהנים מזמינות תמידית ומיידית.<br />משרדנו מעניק ליווי משפטי בכל ההליכים בבתי הדין הכוללים דיני משפחה ומעמד אישי, דיני ממונות, חוזים, הסכמי ממון וגירושין, ערעורים לבית הדין הגדול, וצוואות וירושות, </p>								</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1de6e70" data-id="1de6e70" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;background_motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-77d8350 elementor-widget elementor-widget-spacer" data-id="77d8350" data-element_type="widget" data-widget_type="spacer.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-spacer">
-			<div class="elementor-spacer-inner"></div>
-		</div>
-						</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-8cfb9f6 elementor-section-full_width elementor-reverse-mobile elementor-section-height-default elementor-section-height-default" data-id="8cfb9f6" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-fdf877c" data-id="fdf877c" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;background_motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-					<div class="elementor-background-overlay"></div>
-						<div class="elementor-element elementor-element-44205ef elementor-widget elementor-widget-spacer" data-id="44205ef" data-element_type="widget" data-widget_type="spacer.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-spacer">
-			<div class="elementor-spacer-inner"></div>
-		</div>
-						</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f5fde7d" data-id="f5fde7d" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-c053c73 elementor-widget elementor-widget-heading" data-id="c053c73" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">טוען רבני או עורך דין?</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-17079e3 elementor-widget elementor-widget-text-editor" data-id="17079e3" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-									<p>בתקופה קשה ורגישה זו, עומדים בפני המתדיין לבטים רבים, אך בראש ובראשונה הוא נאלץ להכריע בתחום שאינו מבין בו כראוי אך מאידך הוא בעל השלכה קריטית להליך הקשה שבו הוא נמצא, איזה מייצג לקחת? טוען רבני או שמא עורך דין?</p><p>אכן, ייחודו של בית הדין הרבני, הוא פסיקתו המבוססת על המשפט העברי, בעוד שבית המשפט האזרחי פוסק על פי החוק האזרחי הנהוג במדינת ישראל בית הדין פוסק על פי המשפט העברי תוך שלא אחת הוא נשען על פסקי דין קודמים שיצאו מבתי הדין,  משכך האדם המתאים ביותר לעמוד בפני דייני בית הדין ולייצג את לקוחותיו נאמנה הוא זה שבא מבית מדרשם של דייני ישראל, בקי בשפתם חושב כמותם ומכיר את הלך רוחם.</p>								</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-94c971e elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="94c971e" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-36c282a" data-id="36c282a" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-951cca6 elementor-widget elementor-widget-heading" data-id="951cca6" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">טוען רבני  זול, יש דבר כזה?</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-8d59185 elementor-widget elementor-widget-text-editor" data-id="8d59185" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-									<p>התשובה היא בהחלט כן!</p><p>אותו טוען רבני שעושה עבודה יסודית ומקצועית, נובר בחומרים, מתכונן היטב לדיונים ואינו חוסך כל מאמץ מעצמו,  רבים סיכוייו להביא להכרעה הרצויה בבית הדין, והוא זה שבסופו יחסוך כסף ללקוח שלו. יתירה מכך, ייתכן מאוד כי לנוכח העבודה היסודית שקדמה להכרעת בית הדין, אף הצד השני יבין כי אפסו הסיכויים להצליח בערעור בערכאה גבוהה יותר ומשום כך יימנע מלכתחילה מלהתחיל במהלך חסר סיכוי. מאידך טוען רבני שלא יקפיד לעשות עבודה יסודית קודם הדיון ולא ישקיע את כולו בתיק, מובן מאליו כי קטנים סיכוייו להביא להכרעה הרצויה בתיק, לא זו בלבד, אלא הכרעה לא רצויה בתיק תאלץ אותך להגיע בסופו של דבר לערכאה גבוהה יותר על כל העלויות הנגזרות מכך בתקווה כי אולי משם תבוא הישועה. נמצא איפה, כי אותו טוען רבני שעושה את עבודתו במקצועיות רבה הוא בסופו של דבר הזול יותר!</p>								</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4e71d95" data-id="4e71d95" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;background_motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-					<div class="elementor-background-overlay"></div>
-						<div class="elementor-element elementor-element-27af5e0 elementor-widget elementor-widget-spacer" data-id="27af5e0" data-element_type="widget" data-widget_type="spacer.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-spacer">
-			<div class="elementor-spacer-inner"></div>
-		</div>
-						</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				</div>
-				<div data-elementor-type="footer" data-elementor-id="254" class="elementor elementor-254 elementor-location-footer" data-elementor-post-type="elementor_library">
-					<section class="elementor-section elementor-top-section elementor-element elementor-element-5e3d4c82 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="5e3d4c82" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-54358cbb" data-id="54358cbb" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-d758f42 elementor-widget elementor-widget-ucaddon_border_btn_effect" data-id="d758f42" data-element_type="widget" data-widget_type="ucaddon_border_btn_effect.default">
-				<div class="elementor-widget-container">
-					
-<!-- start Border Button Effect -->
-<style>/* widget: Border Button Effect */
-
-#uc_border_btn_effect_elementor_d758f42
-{
-  text-align:center;
-}
-  
-#uc_border_btn_effect_elementor_d758f42 a{
-  display: inline-block;
-  background: ;
-  text-align: center;
-  position: relative;
-  text-decoration: none;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  padding:5px 10px;
-  box-sizing:border-box;
-  outline:none;
-}
-
-#uc_border_btn_effect_elementor_d758f42 a:before,
-#uc_border_btn_effect_elementor_d758f42 a:after{
-  position: absolute;
-  content: "";
-  transition: all .25s;
-}
-
-#uc_border_btn_effect_elementor_d758f42 a:before{
-  border-bottom: 3px solid #000000;
-  border-left: 3px solid #000000;
-  width: 20px;
-  height: 20px;
-  left: -10px;
-  bottom: -10px;
-}
-
-#uc_border_btn_effect_elementor_d758f42 a:after{
-  border-top: 3px solid #000000;
-  border-right: 3px solid #000000;
-  width: 20px;
-  height: 20px;
-  top: -10px;
-  right: -10px;
-}
-
-#uc_border_btn_effect_elementor_d758f42 a:hover:before{
-  width: 100%;
-  height: 100%;
-}
-
-#uc_border_btn_effect_elementor_d758f42 a:hover:after{
-  width: 100%;
-  height: 100%;
-}
-
-</style>
-
-<div id="uc_border_btn_effect_elementor_d758f42">
-  <a href="" ><span  class="uc_style_border_btn_effect_elementor_txt" style="color:#000000;">דברו איתנו</span></a>
-</div>
-<!-- end Border Button Effect -->				</div>
-				</div>
-				<div class="elementor-element elementor-element-51c1c817 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="51c1c817" data-element_type="widget" data-settings="{&quot;button_width&quot;:&quot;25&quot;,&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
-				<div class="elementor-widget-container">
-							<form class="elementor-form" method="post" name="טופס יצירת קשר">
-			<input type="hidden" name="post_id" value="254"/>
-			<input type="hidden" name="form_id" value="51c1c817"/>
-			<input type="hidden" name="referer_title" value="כריכה וכנותה לאור המגמה החדשה בבתי המשפט ו&#039;טעם מיוחד&#039; לקביעת סמכות למרות החלטה אחרת של בית המשפט - אלחנן רבינסקי טוען רבני ומגשר" />
-
-							<input type="hidden" name="queried_id" value="2771"/>
-			
-			<div class="elementor-form-fields-wrapper elementor-labels-">
-								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-25 elementor-md-25 elementor-field-required">
-												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
-								שם מלא							</label>
-														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="שם מלא" required="required">
-											</div>
-								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-25 elementor-md-25">
-												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
-								דוא"ל							</label>
-														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="דוא&quot;ל">
-											</div>
-								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_1 elementor-col-25 elementor-md-25 elementor-field-required">
-												<label for="form-field-field_1" class="elementor-field-label elementor-screen-only">
-								טלפון							</label>
-								<input size="1" type="tel" name="form_fields[field_1]" id="form-field-field_1" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="טלפון" required="required" pattern="[0-9()#&amp;+*-=.]+" title="מותר להשתמש רק במספרים ותווי טלפון (#, -, *, וכו&#039;).">
-
-						</div>
-								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-field_dc26fd4 elementor-col-100 elementor-field-required">
-												<label for="form-field-field_dc26fd4" class="elementor-field-label elementor-screen-only">
-								הסכמת מדיניות פרטיות							</label>
-								<div class="elementor-field-subgroup">
-			<span class="elementor-field-option">
-				<input type="checkbox" name="form_fields[field_dc26fd4]" id="form-field-field_dc26fd4" class="elementor-field elementor-size-sm  elementor-acceptance-field" required="required">
-				<label for="form-field-field_dc26fd4">אני מאשר/ת את מסירת הפרטים מרצוני החופשי והשימוש בהם כדי ליצור איתי קשר בהתאם 
-<a href="https://r-mediator.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/"  target="_blank" ">
-למדיניות הפרטיות שלנו </a> אני מבין/ה כי באם אסרב לא ניתן יהיה לקבל שירות.</label>			</span>
-		</div>
-						</div>
-								<div class="elementor-field-type-text">
-					<input size="1" type="text" name="form_fields[field_9b4ed2c]" id="form-field-field_9b4ed2c" class="elementor-field elementor-size-sm " style="display:none !important;">				</div>
-								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-25 e-form__buttons">
-					<button class="elementor-button elementor-size-sm" type="submit">
-						<span class="elementor-button-content-wrapper">
-															<span class="elementor-button-icon">
-									<i aria-hidden="true" class="fas fa-angle-left"></i>																	</span>
-																						<span class="elementor-button-text">שלח</span>
-													</span>
-					</button>
-				</div>
-			</div>
-		</form>
-						</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-5fa518bd elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="5fa518bd" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-54d4a629" data-id="54d4a629" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<section class="elementor-section elementor-inner-section elementor-element elementor-element-64b2db50 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="64b2db50" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d3fdd86" data-id="d3fdd86" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-bfc33d5 elementor-widget elementor-widget-heading" data-id="bfc33d5" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-heading-title elementor-size-default">תפריט</div>				</div>
-				</div>
-				<div class="elementor-element elementor-element-0e6b445 elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="0e6b445" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
-				<div class="elementor-widget-container">
-								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-underline e--animation-fade">
-				<ul id="menu-1-0e6b445" class="elementor-nav-menu sm-vertical accessibility_menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-171 current_page_item menu-item-269"><a href="https://r-mediator.co.il/" aria-current="page" class="elementor-item elementor-item-active">ראשי</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-268"><a href="https://r-mediator.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item">אודות</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-353"><a href="#" class="elementor-item elementor-item-anchor">גירושין</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1164"><a href="https://r-mediator.co.il/%d7%9e%d7%aa%d7%92%d7%a8%d7%a9%d7%99%d7%9d-%d7%9b%d7%9a-%d7%aa%d7%a2%d7%a9%d7%95-%d7%90%d7%aa-%d7%96%d7%94-%d7%a0%d7%9b%d7%95%d7%9f/" class="elementor-sub-item">מתגרשים? כך תעשו את זה נכון!</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-584"><a href="https://r-mediator.co.il/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%99%d7%aa-%d7%92%d7%99%d7%a8%d7%95%d7%a9%d7%99%d7%9f/" class="elementor-sub-item">אסטרטגיית גירושין</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-585"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%94%d7%93%d7%99%d7%9f-%d7%94%d7%a8%d7%91%d7%a0%d7%99-%d7%a2%d7%9c-%d7%a7%d7%a6%d7%94-%d7%94%d7%9e%d7%96%d7%9c%d7%92/" class="elementor-sub-item">בית הדין הרבני – על קצה המזלג</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-354"><a href="#" class="elementor-item elementor-item-anchor">ממונות</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-736"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%93%d7%99%d7%9f-%d7%a6%d7%93%d7%a7/" class="elementor-sub-item">בית דין צדק</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-735"><a href="https://r-mediator.co.il/%d7%9c%d7%9e%d7%94-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99/" class="elementor-sub-item">למה טוען רבני?</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-435"><a href="https://r-mediator.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d-%d7%a9%d7%99%d7%9e%d7%95%d7%a9%d7%99%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%a8%d7%93%d7%94-%d7%97%d7%95%d7%a4%d7%a9%d7%99%d7%aa/" class="elementor-item">טפסים שימושיים</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-814"><a href="#" class="elementor-item elementor-item-anchor">מאמרים</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-816"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%a9%d7%a4%d7%97%d7%94/" class="elementor-sub-item">דיני משפחה</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-815"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%9e%d7%95%d7%a0%d7%95%d7%aa/" class="elementor-sub-item">דיני ממונות</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1624"><a href="https://r-mediator.co.il/%d7%a4%d7%a1%d7%a7%d7%99-%d7%93%d7%99%d7%9f/" class="elementor-item">פסקי דין</a></li>
-</ul>			</nav>
-						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
-				<ul id="menu-2-0e6b445" class="elementor-nav-menu sm-vertical accessibility_menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-171 current_page_item menu-item-269"><a href="https://r-mediator.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">ראשי</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-268"><a href="https://r-mediator.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item" tabindex="-1">אודות</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-353"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">גירושין</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1164"><a href="https://r-mediator.co.il/%d7%9e%d7%aa%d7%92%d7%a8%d7%a9%d7%99%d7%9d-%d7%9b%d7%9a-%d7%aa%d7%a2%d7%a9%d7%95-%d7%90%d7%aa-%d7%96%d7%94-%d7%a0%d7%9b%d7%95%d7%9f/" class="elementor-sub-item" tabindex="-1">מתגרשים? כך תעשו את זה נכון!</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-584"><a href="https://r-mediator.co.il/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%99%d7%aa-%d7%92%d7%99%d7%a8%d7%95%d7%a9%d7%99%d7%9f/" class="elementor-sub-item" tabindex="-1">אסטרטגיית גירושין</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-585"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%94%d7%93%d7%99%d7%9f-%d7%94%d7%a8%d7%91%d7%a0%d7%99-%d7%a2%d7%9c-%d7%a7%d7%a6%d7%94-%d7%94%d7%9e%d7%96%d7%9c%d7%92/" class="elementor-sub-item" tabindex="-1">בית הדין הרבני – על קצה המזלג</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-354"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">ממונות</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-736"><a href="https://r-mediator.co.il/%d7%91%d7%99%d7%aa-%d7%93%d7%99%d7%9f-%d7%a6%d7%93%d7%a7/" class="elementor-sub-item" tabindex="-1">בית דין צדק</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-735"><a href="https://r-mediator.co.il/%d7%9c%d7%9e%d7%94-%d7%98%d7%95%d7%a2%d7%9f-%d7%a8%d7%91%d7%a0%d7%99/" class="elementor-sub-item" tabindex="-1">למה טוען רבני?</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-435"><a href="https://r-mediator.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d-%d7%a9%d7%99%d7%9e%d7%95%d7%a9%d7%99%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%a8%d7%93%d7%94-%d7%97%d7%95%d7%a4%d7%a9%d7%99%d7%aa/" class="elementor-item" tabindex="-1">טפסים שימושיים</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-814"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">מאמרים</a>
-<ul class="sub-menu elementor-nav-menu--dropdown">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-816"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%a9%d7%a4%d7%97%d7%94/" class="elementor-sub-item" tabindex="-1">דיני משפחה</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-815"><a href="https://r-mediator.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%91%d7%93%d7%99%d7%a0%d7%99-%d7%9e%d7%9e%d7%95%d7%a0%d7%95%d7%aa/" class="elementor-sub-item" tabindex="-1">דיני ממונות</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1624"><a href="https://r-mediator.co.il/%d7%a4%d7%a1%d7%a7%d7%99-%d7%93%d7%99%d7%9f/" class="elementor-item" tabindex="-1">פסקי דין</a></li>
-</ul>			</nav>
-						</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-a160400" data-id="a160400" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-08f3dd8 elementor-widget elementor-widget-heading" data-id="08f3dd8" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-heading-title elementor-size-default">מאמרים אחרונים</div>				</div>
-				</div>
-				<div class="elementor-element elementor-element-8efac34 elementor-grid-1 elementor-posts--thumbnail-none elementor-grid-tablet-1 elementor-grid-mobile-1 elementor-widget elementor-widget-posts" data-id="8efac34" data-element_type="widget" data-settings="{&quot;classic_columns&quot;:&quot;1&quot;,&quot;classic_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;classic_columns_tablet&quot;:&quot;1&quot;,&quot;classic_columns_mobile&quot;:&quot;1&quot;,&quot;classic_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;classic_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="posts.classic">
-				<div class="elementor-widget-container">
-							<div class="elementor-posts-container elementor-posts elementor-posts--skin-classic elementor-grid">
-				<article class="elementor-post elementor-grid-item post-2340 post type-post status-publish format-standard has-post-thumbnail hentry category-11 category-9 tag-602 tag-609 tag-13 tag-610">
-				<div class="elementor-post__text">
-				<h3 class="elementor-post__title">
-			<a href="https://r-mediator.co.il/%d7%98%d7%99%d7%95%d7%98%d7%94-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%aa-%d7%97%d7%96%d7%a7%d7%aa-%d7%92%d7%99%d7%9c-%d7%94%d7%a8%d7%9a/" >
-				חזקת גיל הרך &#8211; גם כיום?			</a>
-		</h3>
-				</div>
-				</article>
-				<article class="elementor-post elementor-grid-item post-2333 post type-post status-publish format-standard has-post-thumbnail hentry category-11 category-9 tag-29 tag-605 tag-608 tag-607 tag-604">
-				<div class="elementor-post__text">
-				<h3 class="elementor-post__title">
-			<a href="https://r-mediator.co.il/%d7%a4%d7%a1%d7%99%d7%9c%d7%aa-%d7%97%d7%95%d7%95%d7%aa-%d7%93%d7%a2%d7%aa-%d7%9e%d7%95%d7%9e%d7%97%d7%94-%d7%9e%d7%98%d7%a2%d7%9d-%d7%91%d7%99%d7%aa-%d7%94%d7%93%d7%99%d7%9f/" >
-				פסילת חוות דעת מומחה מטעם בית הדין			</a>
-		</h3>
-				</div>
-				</article>
-				<article class="elementor-post elementor-grid-item post-2331 post type-post status-publish format-standard has-post-thumbnail hentry category-11 category-9 tag-29 tag-13 tag-605 tag-606 tag-604">
-				<div class="elementor-post__text">
-				<h3 class="elementor-post__title">
-			<a href="https://r-mediator.co.il/%d7%9e%d7%a2%d7%9e%d7%93-%d7%9e%d7%95%d7%9e%d7%97%d7%94-%d7%9e%d7%98%d7%a2%d7%9d-%d7%91%d7%99%d7%aa-%d7%94%d7%93%d7%99%d7%9f/" >
-				מעמד מומחה מטעם בית הדין			</a>
-		</h3>
-				</div>
-				</article>
-				</div>
-		
-						</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-14afc193" data-id="14afc193" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-65e4bd0f elementor-widget elementor-widget-heading" data-id="65e4bd0f" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-heading-title elementor-size-default">יצירת קשר</div>				</div>
-				</div>
-				<div class="elementor-element elementor-element-c650148 elementor-tablet-align-right elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="c650148" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-map-marker-alt"></i>						</span>
-										<span class="elementor-icon-list-text">ירושלים: בניין שערי העיר רחוב יפו 216</span>
-									</li>
-								<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-map-marker-alt"></i>						</span>
-										<span class="elementor-icon-list-text">ביתר עילית: המגיד ממזריטש 12</span>
-									</li>
-								<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-phone"></i>						</span>
-										<span class="elementor-icon-list-text">02-5801515</span>
-									</li>
-								<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-phone"></i>						</span>
-										<span class="elementor-icon-list-text">058-7123232</span>
-									</li>
-								<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-fax"></i>						</span>
-										<span class="elementor-icon-list-text">077-5558847</span>
-									</li>
-								<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-envelope"></i>						</span>
-										<span class="elementor-icon-list-text">e7673564@gmail.com</span>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://r-mediator.co.il/%d7%aa%d7%a9%d7%9c%d7%95%d7%9d-%d7%90%d7%92%d7%a8%d7%95%d7%aa-%d7%91%d7%aa%d7%99-%d7%94%d7%93%d7%99%d7%9f-%d7%94%d7%a8%d7%91%d7%a0%d7%99%d7%99%d7%9d/">
-
-												<span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class="fas fa-equals"></i>						</span>
-										<span class="elementor-icon-list-text">תשלום אגרות בתי הדין הרבניים</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-7fe35be1" data-id="7fe35be1" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-1023502 elementor-widget elementor-widget-ucaddon_border_btn_effect" data-id="1023502" data-element_type="widget" data-widget_type="ucaddon_border_btn_effect.default">
-				<div class="elementor-widget-container">
-					
-<!-- start Border Button Effect -->
-<style>/* widget: Border Button Effect */
-
-#uc_border_btn_effect_elementor_1023502
-{
-  text-align:center;
-}
-  
-#uc_border_btn_effect_elementor_1023502 a{
-  display: inline-block;
-  background: rgba(255, 255, 255, 0);
-  text-align: center;
-  position: relative;
-  text-decoration: none;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  padding:10px 5px;
-  box-sizing:border-box;
-  outline:none;
-}
-
-#uc_border_btn_effect_elementor_1023502 a:before,
-#uc_border_btn_effect_elementor_1023502 a:after{
-  position: absolute;
-  content: "";
-  transition: all .25s;
-}
-
-#uc_border_btn_effect_elementor_1023502 a:before{
-  border-bottom: 3px solid #FFFFFF;
-  border-left: 3px solid #FFFFFF;
-  width: 20px;
-  height: 20px;
-  left: -10px;
-  bottom: -10px;
-}
-
-#uc_border_btn_effect_elementor_1023502 a:after{
-  border-top: 3px solid #FFFFFF;
-  border-right: 3px solid #FFFFFF;
-  width: 20px;
-  height: 20px;
-  top: -10px;
-  right: -10px;
-}
-
-#uc_border_btn_effect_elementor_1023502 a:hover:before{
-  width: 100%;
-  height: 100%;
-}
-
-#uc_border_btn_effect_elementor_1023502 a:hover:after{
-  width: 100%;
-  height: 100%;
-}
-
-</style>
-
-<div id="uc_border_btn_effect_elementor_1023502">
-  <a href="https://r-mediator.co.il/%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%91%d7%aa%d7%99-%d7%94%d7%93%d7%99%d7%9f-%d7%94%d7%a8%d7%91%d7%a0%d7%99%d7%99%d7%9d/"  target='_blank'><span  class="uc_style_border_btn_effect_elementor_txt" style="color:#FFFFFF;">רשימת בתי הדין הרבניים</span></a>
-</div>
-<!-- end Border Button Effect -->				</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<div class="elementor-element elementor-element-bd362b9 elementor-view-stacked elementor-widget__width-auto elementor-fixed elementor-shape-circle elementor-invisible elementor-widget elementor-widget-icon" data-id="bd362b9" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;zoomIn&quot;,&quot;_position&quot;:&quot;fixed&quot;}" data-widget_type="icon.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-icon-wrapper">
-			<a class="elementor-icon elementor-animation-shrink" href="https://api.whatsapp.com/send?phone=972587123232&#038;text=%D7%94%D7%99%D7%99,%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8" target="_blank">
-			<i aria-hidden="true" class="fab fa-whatsapp"></i>			</a>
-		</div>
-						</div>
-				</div>
-				<section class="elementor-section elementor-inner-section elementor-element elementor-element-56a149c3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="56a149c3" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-53a0b955" data-id="53a0b955" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-80e38cb elementor-widget elementor-widget-text-editor" data-id="80e38cb" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-									<p>Ⓒ 2020 כל הזכויות שמורות  | <span style="color: #d7d7d9;"> <a href="https://r-mediator.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/">הצהרת נגישות </a>  |   <a href="https://r-mediator.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/">מדיניות פרטיות</a></span></p>								</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-cda5142" data-id="cda5142" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-d0aabb4 elementor-widget elementor-widget-heading" data-id="d0aabb4" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-heading-title elementor-size-default"><a href="https://www.c-site.co.il/" target="_blank">עוצב ונבנה ע"י Csite</a></div>				</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-					</div>
-		</div>
-					</div>
-		</section>
-				</div>
-		
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-theme-master/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-<style>
-    
-
-            #open_sogoacc {
-                background: #0780C3;
-                color: #FFF;
-                border-bottom: 1px solid #0780C3;
-                border-right: 1px solid #0780C3;
-            }
-
-            #close_sogoacc {
-                background: #0780C3;
-                color: #fff;
-            }
-
-            #sogoacc div#sogo_font_a button {
-                color: #0780C3;
-
-            }
-
-            body.sogo_readable_font * {
-                font-family: "Arial", sans-serif !important;
-            }
-
-            body.sogo_underline_links a {
-                text-decoration: underline !important;
-            }
-
-    
-
-</style>
-
-
-<div id="sogo_overlay"></div>
-
-<button id="open_sogoacc"
-   aria-label="לחץ &quot;ALT+A&quot; בכדי לפתוח \ לסגור את תפריט הנגישות"
-   tabindex="1"
-   accesskey="a" class="topleft toggle_sogoacc"><i style="font-size: 30px" class="fa fa-wheelchair"  ></i></button>
-<div id="sogoacc" class="topleft">
-    <div id="close_sogoacc"
-         class="toggle_sogoacc">נגישות</div>
-    <div class="sogo-btn-toolbar" role="toolbar">
-        <div class="sogo-btn-group">
-						                <button type="button" id="b_n_c" class="btn btn-default">
-                    <span class="sogo-icon-black_and_white" aria-hidden="true"></span>
-					שחור לבן</button>
-						                <button type="button" id="contrasts"
-                        data-css="https://r-mediator.co.il/wp-content/plugins/sogo-accessibility/public//css/sogo_contrasts.css"
-                        class="btn btn-default">
-                    <span class="sogo-icon sogo-icon-black" aria-hidden="true"></span>
-					חדות כהה </button>
-						                <button type="button" id="contrasts_white"
-                        data-css="https://r-mediator.co.il/wp-content/plugins/sogo-accessibility/public//css/sogo_contrasts_white.css"
-                        class="btn btn-default">
-                    <span class="sogo-icon-white" aria-hidden="true"></span>
-					חדות בהירה</button>
-						                <button type="button" id="animation_off" class="btn btn-default" >
-                    <span class="sogo-icon-flash" aria-hidden="true"></span>
-					הפסק הבהובים</button>
-						                <button type="button" id="readable_font" class="btn btn-default">
-                    <span class="sogo-icon-font" aria-hidden="true"></span>
-					פונט קריא</button>
-						                <button type="button" id="underline_links" class="btn btn-default">
-                    <span class="sogo-icon-link" aria-hidden="true"></span>
-					הדגש קישורים</button>
-			
-
-        </div>
-        <div id="sogo_font_a" class="sogo-btn-group clearfix">
-            <button id="sogo_a1" data-size="1" type="button"
-                    class="btn btn-default " aria-label="Press to increase font size">א</button>
-            <button id="sogo_a2" data-size="1.1" type="button"
-                    class="btn btn-default" Press to increase font size">א</button>
-            <button id="sogo_a3" data-size="1.4" type="button"
-                    class="btn btn-default" Press to increase font size">א</button>
-        </div>
-        <div class="accessibility-info">
-
-            <div><a   id="sogo_accessibility"
-                    href="#"><i aria-hidden="true" class="fa fa-times-circle-o red " ></i>הפסק נגישות                </a>
-            </div>
-            <div>
-													            </div>
-
-
-        </div>
-
-
-    </div>
-	        <div class="sogo-logo">
-            <a target="_blank" href="https://pluginsmarket.com/downloads/accessibility-plugin/"
-               title="Provided by sogo.co.il">
-                <span>מסופק ע"י: </span>
-                <img src="https://r-mediator.co.il/wp-content/plugins/sogo-accessibility/public/css/sogo-logo.png" alt="sogo logo"/>
-
-            </a>
-        </div>
-	</div>        <script type="text/javascript">
-            // Check if the plugin is loaded only once
-            if (typeof window.maspikLoaded === "undefined") {
-                window.maspikLoaded = true;
-                
-                // Function to check if form should be excluded
-                function shouldExcludeForm(form) {
-                    // Check role/aria for search
-                    var role = (form.getAttribute('role') || '').toLowerCase();
-                    if (role === 'search') { return true; }
-                    var aria = (form.getAttribute('aria-label') || '').toLowerCase();
-                    if (aria.indexOf('search') !== -1) { return true; }
-                    
-                    // Check action URL for search patterns
-                    var action = (form.getAttribute('action') || '').toLowerCase();
-                    if (action.indexOf('?s=') !== -1 || action.indexOf('search=') !== -1 || /\/search(\/?|\?|$)/.test(action)) {
-                        return true;
-                    }
-                    
-                    // Check form classes
-                    var classes = form.className.split(' ');
-                    if (classes.some(function(className) {
-                        return className.toLowerCase().includes('search');
-                    })) {
-                        return true;
-                    }
-                    
-                    // Check for search inputs inside the form
-                    var searchInputs = form.querySelectorAll('input[type="search"], input.search, .search input, input[class*="search"], input[id*="search"], input[name="s"], input[name*="search"]');
-                    if (searchInputs.length > 0) {
-                        return true;
-                    }
-                    
-                    // Check for search-related classes in child elements
-                    var searchElements = form.querySelectorAll('.search, [class*="search"], [id*="search"], [aria-label*="search" i]');
-                    if (searchElements.length > 0) {
-                        return true;
-                    }
-                    
-                    return false;
-                }
-                
-                                // Function to add the hidden fields
-                function addMaspikHiddenFields(form) {
-                    // Check if the fields already exist
-                    if (form.querySelector(".maspik-field")) return;
-
-                    // Check if the form is already submitted
-                    if (form.dataset.maspikProcessed) return;
-                    form.dataset.maspikProcessed = true;
-
-                    // Common attributes for the fields
-                    var commonAttributes = {
-                        "aria-hidden": "true",
-                        tabindex: "-1",
-                        autocomplete: "off",
-                        class: "maspik-field"
-                    };
-
-                    var hiddenFieldStyles = {
-                        position: "absolute",
-                        left: "-99999px"
-                    };
-
-                    // Function to create a hidden field
-                    function createHiddenField(attributes, styles) {
-                        var field = document.createElement("input");
-                        for (var attr in attributes) {
-                            field.setAttribute(attr, attributes[attr]);
-                        }
-                        for (var style in styles) {
-                            field.style[style] = styles[style];
-                        }
-                        return field;
-                    }
-
-                                        // Add Honeypot field if enabled
-                    var honeypot = createHiddenField({
-                        type: "text",
-                        name: "full-name-maspik-hp",
-                        class: form.className + " maspik-field",
-                        placeholder: "Leave this field empty"
-                    }, hiddenFieldStyles);
-                    form.appendChild(honeypot);
-                    
-                                    }
-
-                //on load
-                document.addEventListener("DOMContentLoaded", function() {
-                    var forms = document.querySelectorAll("form");
-                    forms.forEach(function(form) {
-                        // Only add fields if form is not excluded
-                        if (!shouldExcludeForm(form)) {
-                            addMaspikHiddenFields(form);
-                        }
-                    });
-                });
-
-                // Add the fields when the form is submitted
-                document.addEventListener("submit", function(e) {
-                    if (e.target.tagName === "FORM") {
-                        // Only add fields if form is not excluded
-                        if (!shouldExcludeForm(e.target)) {
-                            addMaspikHiddenFields(e.target);
-                                                    }
-                    }
-                }, true);
-                
-                                // spam key
-                                // Maspik add key to forms
-                document.addEventListener("DOMContentLoaded", function() {
-                    var spamKey = "6JInovZBj7eEqsSOOZC0Oceu8H9uLOXlvudAaCpsiU870MmRzpKD4PgDRWxd0lDg";
-                    var input = document.createElement("input");
-                    input.type = "hidden";
-                    input.name = "maspik_spam_key";
-                    input.value = spamKey;
-                    input.setAttribute("autocomplete", "off");
-            
-                    // Select all forms
-                    var forms = document.querySelectorAll("form");
-                    forms.forEach(function(form) {
-                        // Only add the spam key if form is not excluded and key not already added
-                        if (!shouldExcludeForm(form) && !form.querySelector("input[name=maspik_spam_key]")) {
-                            form.appendChild(input.cloneNode(true));
-                        }
-                    });
-                });
-                
-                // add in other way, if the first way not working
-                document.addEventListener("submit", function(e) {
-                    if (e.target.tagName === "FORM") {
-                        // Only add the spam key if form is not excluded and key not already added
-                        if (!shouldExcludeForm(e.target) && !e.target.querySelector("input[name=maspik_spam_key]")) {
-                            var spamKey = "6JInovZBj7eEqsSOOZC0Oceu8H9uLOXlvudAaCpsiU870MmRzpKD4PgDRWxd0lDg";
-                            var input = document.createElement("input");
-                            input.type = "hidden";
-                            input.name = "maspik_spam_key";
-                            input.value = spamKey;
-                            input.setAttribute("autocomplete", "off");
-                            e.target.appendChild(input);
-                        }
-                    }
-                }, true);
-                            }
-        </script>
-        <style>
-            .maspik-field { 
-                display: none !important; 
-                pointer-events: none !important;
-                opacity: 0 !important;
-                position: absolute !important;
-                left: -99999px !important;
-            }
-        </style>
-        			<script>
-				const lazyloadRunObserver = () => {
-					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
-					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
-						entries.forEach( ( entry ) => {
-							if ( entry.isIntersecting ) {
-								let lazyloadBackground = entry.target;
-								if( lazyloadBackground ) {
-									lazyloadBackground.classList.add( 'e-lazyloaded' );
-								}
-								lazyloadBackgroundObserver.unobserve( entry.target );
-							}
-						});
-					}, { rootMargin: '200px 0px 200px 0px' } );
-					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
-						lazyloadBackgroundObserver.observe( lazyloadBackground );
-					} );
-				};
-				const events = [
-					'DOMContentLoaded',
-					'elementor/lazyload/observe',
-				];
-				events.forEach( ( event ) => {
-					document.addEventListener( event, lazyloadRunObserver );
-				} );
-			</script>
-			<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/sogo-accessibility/public/js/navigation.js?ver=1.0.5" id="sogo_accessibility.navigation-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/sogo-accessibility/public/js/sogo-accessibility-public.js?ver=1.0.5" id="sogo_accessibility-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.33.1" id="elementor-webpack-runtime-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.33.1" id="elementor-frontend-modules-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
-<script type="text/javascript" id="elementor-frontend-js-before">
-/* <![CDATA[ */
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8","a11yCarouselPrevSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea","a11yCarouselNextSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4","a11yCarouselFirstSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4","a11yCarouselLastSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d4","a11yCarouselPaginationBulletMessage":"\u05dc\u05e2\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.33.1","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/r-mediator.co.il\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/r-mediator.co.il\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/r-mediator.co.il\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"5493fc986a"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":171,"title":"%D7%90%D7%9C%D7%97%D7%A0%D7%9F%20%D7%A8%D7%91%D7%99%D7%A0%D7%A1%D7%A7%D7%99%20%D7%98%D7%95%D7%A2%D7%9F%20%D7%A8%D7%91%D7%A0%D7%99%20%D7%95%D7%9E%D7%92%D7%A9%D7%A8","excerpt":"","featuredImage":false}};
-//# sourceURL=elementor-frontend-js-before
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.33.1" id="elementor-frontend-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.29.2" id="e-sticky-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.29.2" id="elementor-pro-webpack-runtime-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
-<script type="text/javascript" id="wp-i18n-js-after">
-/* <![CDATA[ */
-wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
-//# sourceURL=wp-i18n-js-after
-/* ]]> */
-</script>
-<script type="text/javascript" id="elementor-pro-frontend-js-before">
-/* <![CDATA[ */
-var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/r-mediator.co.il\/wp-admin\/admin-ajax.php","nonce":"f50fc5e950","urls":{"assets":"https:\/\/r-mediator.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/r-mediator.co.il\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/r-mediator.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
-//# sourceURL=elementor-pro-frontend-js-before
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.29.2" id="elementor-pro-frontend-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.29.2" id="pro-elements-handlers-js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" id="gsap-js-js"></script>
-<script type="text/javascript" id="elementor-extras-frontend-js-extra">
-/* <![CDATA[ */
-var elementorExtrasFrontendConfig = {"urls":{"assets":"https://r-mediator.co.il/wp-content/plugins/elementor-extras/assets/"},"refreshableWidgets":["ee-offcanvas.classic","ee-popup.classic","gallery-slider.default","media-carousel.default","image-carousel.default","slides.default"]};
-//# sourceURL=elementor-extras-frontend-js-extra
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-extras/assets/js/frontend.min.js?ver=2.2.52" id="elementor-extras-frontend-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-extras/assets/lib/parallax-gallery/parallax-gallery.min.js?ver=1.0.0" id="parallax-gallery-js"></script>
-<script type="text/javascript" src="https://r-mediator.co.il/wp-content/plugins/elementor-extras/assets/lib/hotips/hotips.min.js?ver=1.1.0" id="hotips-js"></script>
-
-</body>
-</html>
-
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
-<!-- Injection By NetFree -->
-<script src="https://netfree.link/injection-script/go-payment.js" type="text/javascript" async  ></script>
-
-<script src="https://netfree.link/injection-script/popup-card-init.js" type="text/javascript" async  ></script>
