@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --speed: 35s;
+            --item-width: 280px;
+            --item-count: 5; /* מספר הקהילות הייחודיות */
+            --gold-touch: #d4af37; /* צבע זהב עדין */
+            --dark-blue: #1a202c;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Assistant', sans-serif;
+            background-color: #fcfcfc;
+        }
+
+        .global-section {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* עיטור עדין של מפת עולם ברקע (אופציונלי) */
+        .global-section::before {
+            content: "🌍";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 400px;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--dark-blue);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: #718096;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-touch), transparent);
+            margin: 15px auto;
+        }
+
+        .slider-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .logo-track {
+            display: flex;
+            width: calc(var(--item-width) * var(--item-count) * 2);
+            animation: scroll-left var(--speed) linear infinite;
+        }
+
+        .community-card {
+            width: var(--item-width);
+            flex-shrink: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .img-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 180px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #f0f0f0;
+            transition: 0.3s;
+        }
+
+        .community-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .community-name {
+            font-weight: 700;
+            color: var(--dark-blue);
+            font-size: 16px;
+        }
+
+        .community-location {
+            font-size: 14px;
+            color: var(--gold-touch);
+            font-weight: 400;
+        }
+
+        /* אפקט ריחוף */
+        .community-card:hover .img-container {
+            border-color: var(--gold-touch);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .community-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(var(--item-width) * var(--item-count))); }
+        }
+
+        .slider-wrapper:hover .logo-track {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 768px) {
+            :root { var(--item-width): 200px; }
+            .section-header h2 { font-size: 24px; }
+            .img-container { width: 140px; height: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="global-section">
+    <div class="section-header">
+        <h2>אמון שחוצה יבשות</h2>
+        <div class="gold-line"></div>
+        <p>מפיצים אור וקדושה לקהילות היהודיות ברחבי העולם</p>
+    </div>
+
+    <div class="slider-wrapper">
+        <div class="logo-track">
+            <!-- קבוצה 1 -->
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Community 1">
+                </div>
+                <div class="community-name">קהילת שומרי תורה</div>
+                <div class="community-location">ברוקלין, ניו יורק</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Community 2">
+                </div>
+                <div class="community-name">ביהכנ"ס הספרדי המרכזי</div>
+                <div class="community-location">פנמה סיטי, פנמה</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Community 3">
+                </div>
+                <div class="community-name">קהילת עדת ישורון</div>
+                <div class="community-location">לונדון, אנגליה</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Community 4">
+                </div>
+                <div class="community-name">איחוד הקהילות</div>
+                <div class="community-location">פריז, צרפת</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Community 5">
+                </div>
+                <div class="community-name">בית חב"ד המרכזי</div>
+                <div class="community-location">מלבורן, אוסטרליה</div>
+            </div>
+
+            <!-- קבוצה 2 לשכפול -->
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Community 1">
+                </div>
+                <div class="community-name">קהילת שומרי תורה</div>
+                <div class="community-location">ברוקלין, ניו יורק</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Community 2">
+                </div>
+                <div class="community-name">ביהכנ"ס הספרדי המרכזי</div>
+                <div class="community-location">פנמה סיטי, פנמה</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Community 3">
+                </div>
+                <div class="community-name">קהילת עדת ישורון</div>
+                <div class="community-location">לונדון, אנגליה</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Community 4">
+                </div>
+                <div class="community-name">איחוד הקהילות</div>
+                <div class="community-location">פריז, צרפת</div>
+            </div>
+
+            <div class="community-card">
+                <div class="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Community 5">
+                </div>
+                <div class="community-name">בית חב"ד המרכזי</div>
+                <div class="community-location">מלבורן, אוסטרליה</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
